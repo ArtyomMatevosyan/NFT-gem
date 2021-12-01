@@ -1,0 +1,124 @@
+.footer {
+  &__container {
+    width: 100%;
+    background-color: #0f0e13;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    &--blur {
+      width: 100%;
+      filter: blur(10px);
+      background-color: #0f0e13;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    &__wrapper {
+      padding: 7.5rem 6.6rem 7rem 5.7rem;
+      display: flex;
+      max-width: 128rem;
+    }
+  }
+  &__description {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    &--logo {
+      background-color: #b9bec7;
+      border-radius: 0.5rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 16.4rem;
+      height: 3.8rem;
+    }
+
+    &--desc {
+      width: 60%;
+      padding-top: 1.234rem;
+      p {
+        min-width: 31rem;
+        opacity: 0.5;
+        font-family: "Roboto";
+        font-style: normal;
+        font-weight: normal;
+        font-size: 1.2rem;
+        line-height: 2rem;
+        color: #69696b;
+      }
+    }
+  }
+  &__services {
+    width: 30%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0.9rem;
+    &--create,
+    &--myAccount,
+    &--about {
+      display: flex;
+      flex-direction: column;
+      grid-gap: 1.5rem;
+      &--title {
+        font-style: normal;
+        font-weight: 600;
+        font-size: 1.4rem;
+        line-height: 2rem;
+        color: #c4c4c4;
+      }
+      &--services {
+        padding-top: 1.232rem;
+        a {
+          padding-bottom: 1.543rem;
+          display: flex;
+          align-items: center;
+          text-align: left;
+          text-decoration: none;
+          color: #69696b;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+  &__copyright {
+    width: 92%;
+    max-width: 128.5rem;
+    padding-bottom: 1.987rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #333236;
+    &--left {
+      color: #69696b;
+    }
+    &--right {
+      a {
+        padding-left: 0.5rem;
+        text-decoration: none;
+        color: #69696b;
+      }
+    }
+  }
+}
+
+@media (max-width: 1110px) {
+  .footer {
+    &__services {
+      width: 50%;
+    }
+  }
+}
+@media (max-width: 910px) {
+  .footer {
+    &__services {
+      width: 80%;
+    }
+    &__description {
+      &--desc {
+        p {
+          min-width: 24rem;
+        }
+      }
+    }
+  }
+}

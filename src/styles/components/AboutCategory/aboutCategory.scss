@@ -1,0 +1,112 @@
+.aboutCategory {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 19.854rem;
+  &__wrapper {
+    width: 100%;
+    background-color: #eceff4;
+    display: flex;
+    justify-content: center;
+    &__upperSection {
+      width: 100%;
+      max-width: 128rem;
+      display: flex;
+      justify-content: center;
+      grid-gap: 8.8rem;
+      padding: 5rem 7rem 6.6rem 7.3rem;
+      &--imgDiv {
+        background-color: #d3d9e1;
+        border-radius: 4px;
+        width: 39.063%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        max-width: 50rem;
+        min-width: 35rem;
+        height: 43.4rem;
+      }
+      &--infoSection {
+        width: 45%;
+        span {
+          font-size: 3.6rem;
+          line-height: 4.4rem;
+          color: #111111;
+        }
+        div {
+          padding-top: 1.4rem;
+          display: flex;
+          flex-direction: column;
+          width: 95%;
+          grid-gap: 2.5rem;
+          p {
+            margin: 0;
+            color: #2f3031;
+            font-size: 1.6rem;
+            line-height: 3.2rem;
+          }
+        }
+      }
+    }
+  }
+  &__actionSection {
+    width: 100%;
+    max-width: 128rem;
+    &--takeActionDiv {
+      display: flex;
+      flex-direction: column;
+      p {
+        font-size: 3.6rem;
+        line-height: 4.4rem;
+        text-align: center;
+        color: #111111;
+        margin: 0;
+        padding-top: 9.2rem;
+        padding-bottom: 2.2rem;
+      }
+      span {
+        font-size: 16px;
+        line-height: 32px;
+        color: #2f3031;
+        width: 48%;
+        margin: 0 auto;
+        text-align: center;
+      }
+    }
+    &--actions {
+      display: flex;
+      justify-content: space-around;
+      > div {
+        margin-top: 6.3rem;
+        width: 18.928%;
+        max-width: 23.5rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .aboutCategory {
+    &__upperSection {
+      grid-gap: 4.4rem;
+    }
+  }
+}
+@media (max-width: 768px) {
+  .aboutCategory {
+    &__upperSection {
+      flex-direction: column-reverse;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      &--infoSection {
+        width: 80%;
+        text-align: center;
+        span {
+          display: block;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+.create__container {
+  position: relative;
+  &--title {
+    width: 45.1rem;
+    display: flex;
+    justify-content: center;
+    grid-gap: 2rem;
+    margin-bottom: 6.638rem;
+    p {
+      font-size: 3.6rem;
+      line-height: 4.4rem;
+      margin: 0;
+
+      color: #eceff4;
+    }
+  }
+}

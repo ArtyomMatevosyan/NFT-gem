@@ -1,0 +1,42 @@
+.create__container__lootSection {
+  padding-top: 11rem;
+  max-width: 62rem;
+  &--loots {
+    display: flex;
+    grid-gap: 1.3rem;
+    width: 100%;
+    select {
+      display: flex;
+      align-items: center;
+      border: 1px solid #b9bec7;
+      box-sizing: border-box;
+      border-radius: 4px;
+      padding: 1rem 0 1rem 1.6rem;
+
+      width: 90.162%;
+      p {
+        font-size: 1.4rem;
+        line-height: 1.7rem;
+        padding-left: 1.6rem;
+      }
+    }
+    &--createLoot {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      background: rgba(211, 217, 225, 0.2);
+      border: 0.2rem dashed #b9bec7;
+      box-sizing: border-box;
+      border-radius: 0.4rem;
+
+      font-size: 1.6rem;
+      line-height: 2.6rem;
+      padding: 1.335rem 0;
+      cursor: pointer;
+
+      width: 4.8rem;
+      height: 4.8rem;
+    }
+  }
+}

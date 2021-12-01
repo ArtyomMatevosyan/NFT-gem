@@ -1,0 +1,43 @@
+.aboutCategoryAction {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  > div {
+    width: 16.6rem;
+    height: 16.6rem;
+    background: #d3d9e1;
+    border-radius: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  > span {
+    font-size: 2rem;
+    line-height: 2.4rem;
+    text-align: center;
+    height: 9.3rem;
+    display: flex;
+    align-items: center;
+  }
+  > p {
+    font-family: "Roboto";
+    font-size: 1.4rem;
+    line-height: 2.2rem;
+    color: #808080;
+    text-align: center;
+    margin: 0;
+    padding-bottom: 1.7rem;
+  }
+  > button {
+    width: 16.089rem;
+    height: 4.446rem;
+
+    background: #000000;
+    border-radius: 0.4rem;
+
+    font-size: 1.4rem;
+    line-height: 1.7rem;
+    color: #ffffff;
+    border: none;
+  }
+}

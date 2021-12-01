@@ -1,0 +1,113 @@
+.homeSlickSlider {
+  &__container {
+    margin: 0 auto;
+    padding: 5.1rem 4rem 5.8rem 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #eceff4;
+
+    &__wrapper {
+      max-width: 128rem;
+      width: 85%;
+      .slick {
+        &-arrow {
+          width: 5rem;
+          height: auto;
+        }
+        &-prev {
+          &::before {
+            display: none !important;
+          }
+          left: -5.2rem;
+        }
+        &-next {
+          right: -5.2rem;
+
+          &::before {
+            display: none !important;
+          }
+        }
+        &-dots {
+          bottom: -4.5rem;
+          li {
+            button::before {
+              font-size: 1.3rem;
+            }
+          }
+        }
+      }
+    }
+  }
+  &__card__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  &__card {
+    width: 80%;
+    &__imgDiv {
+      background-color: #b9bec7;
+      height: 25.287rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      &--textDiv {
+        padding-top: 3.18rem;
+        p {
+          margin-top: 0;
+          font-style: normal;
+          font-weight: 500;
+          font-size: 1.6rem;
+          line-height: 2.6rem;
+          text-align: center;
+          color: #6e757c;
+        }
+      }
+    }
+    &__authorDiv {
+      display: flex;
+      background-color: #fff;
+      border-radius: 0.4rem;
+      border: 0.1rem solid #b9bec7;
+      box-sizing: border-box;
+      border-radius: 0 0 0.4rem 0.4rem;
+      &--iconDiv {
+        width: 20%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 7.2rem;
+        svg {
+          background-color: #b9bec7;
+          padding: 1.3rem;
+          border-radius: 5rem;
+        }
+      }
+      &--author {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        width: 30%;
+        &--collectionName {
+          margin: 0;
+          font-style: normal;
+          font-weight: 600;
+          font-size: 1.4rem;
+          line-height: 1.7rem;
+          min-width: 11.9rem;
+        }
+        &--name {
+          margin: 0;
+          font-style: normal;
+          font-weight: 600;
+          font-size: 1rem;
+          line-height: 1.2rem;
+          opacity: 0.5;
+        }
+      }
+    }
+  }
+}

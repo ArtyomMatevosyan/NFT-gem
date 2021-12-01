@@ -1,0 +1,43 @@
+.gempoolDetails {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  max-width: 144rem;
+  margin: 0 auto;
+  padding-bottom: 17.7rem;
+  &__content {
+    width: 79.3%;
+    margin-top: 16rem;
+    &__upperPart {
+      display: flex;
+      gap: 3rem;
+      &__leftSection {
+        display: flex;
+        flex-direction: column;
+        width: 57.2%;
+        &--imgDiv {
+          height: 40rem;
+          background: #d3d9e1;
+          border-radius: 4px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          max-width: 65.3rem;
+          p {
+            margin-top: 1.8rem;
+            font-family: Montserrat;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 1.6rem;
+            line-height: 2.6rem;
+            text-align: center;
+            color: #6e757c;
+          }
+        }
+      }
+    }
+  }
+}

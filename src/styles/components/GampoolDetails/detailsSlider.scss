@@ -1,0 +1,113 @@
+.detailsSlider {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  &__container {
+    padding-top: 4rem;
+
+    max-width: 128rem;
+    width: 85%;
+    .slick {
+      &-arrow {
+        width: 5rem;
+        height: auto;
+        &::before {
+          display: none;
+        }
+      }
+      &-prev {
+        left: -5.2rem;
+      }
+      &-next {
+        right: -5.2rem;
+      }
+      &-dots {
+        bottom: -4.5rem;
+        li {
+          button::before {
+            font-size: 1.3rem;
+          }
+        }
+      }
+    }
+  }
+
+  &__card__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  &__card {
+    width: 94.06%;
+    &__imgDiv {
+      background-color: #b9bec7;
+      height: 9.9rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      &--iconDiv {
+        svg {
+          width: 1.348rem;
+          height: 1.294rem;
+        }
+      }
+      &--textDiv {
+        p {
+          margin: 0.8rem 0;
+          font-size: 1.6rem;
+          line-height: 2.6rem;
+          text-align: center;
+          color: #6e757c;
+
+          text-align: center;
+        }
+      }
+    }
+    &__authorDiv {
+      display: flex;
+      background-color: #fff;
+      border-radius: 0.4rem;
+      border: 0.1rem solid #b9bec7;
+      box-sizing: border-box;
+      border-radius: 0 0 0.4rem 0.4rem;
+      max-width: 17.4rem;
+      &--iconDiv {
+        display: flex;
+        justify-content: center;
+        width: 20.05%;
+        padding-top: 0.483rem;
+        svg {
+          background-color: #b9bec7;
+          padding: 0.463rem 0.471rem;
+          border-radius: 5rem;
+          width: 0.627rem;
+          height: 0.616rem;
+        }
+      }
+      &--author {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        width: 81.4%;
+        &--collectionName {
+          margin: 0;
+          font-style: normal;
+          font-weight: 600;
+          min-width: 11.9rem;
+          font-size: 1.6rem;
+          line-height: 2rem;
+        }
+        &--name {
+          margin: 0;
+          font-style: normal;
+          font-weight: 600;
+          font-size: 1rem;
+          line-height: 1.2rem;
+          opacity: 0.5;
+        }
+      }
+    }
+  }
+}

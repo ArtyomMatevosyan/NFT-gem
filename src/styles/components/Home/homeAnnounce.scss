@@ -1,0 +1,133 @@
+.home {
+  &__announceContainer {
+    width: 100%;
+    background-color: #eceff4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  &__announce__container {
+    max-width: 128rem;
+    background-color: #eceff4;
+    display: flex;
+    justify-content: space-around;
+    padding: 5.2rem 0;
+    width: 100%;
+  }
+  &__announce {
+    width: 39.4%;
+    &--title {
+      font-style: normal;
+      font-weight: 600;
+      font-size: 4.2rem;
+      line-height: 5.1rem;
+      display: flex;
+      align-items: center;
+      color: #111111;
+    }
+    &--description {
+      font-style: normal;
+      font-weight: 500;
+      font-size: 2rem;
+      line-height: 3.2rem;
+      margin: 0;
+      padding: 2rem 0 2.6rem 0;
+    }
+    &--search {
+      display: flex;
+      input {
+        width: 70%;
+        padding: 1.647rem 2.559rem 1.73rem 1.896rem;
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 1.6rem;
+        line-height: 1.9rem;
+        color: #000000;
+      }
+      button {
+        min-width: 10rem;
+        width: 30%;
+        padding: 1.371rem 0;
+        background-color: #000;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: none;
+        border-radius: 0.4rem;
+        svg {
+          padding-right: 0.5rem;
+        }
+      }
+    }
+  }
+  &__announce__card__container {
+    width: 34.3%;
+  }
+  &__announce__card {
+    display: flex;
+    flex-direction: column;
+    &__imgDiv {
+      background-color: #b9bec7;
+      height: 25.287rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      &--textDiv {
+        padding-top: 3.18rem;
+        p {
+          margin-top: 0;
+          font-style: normal;
+          font-weight: 500;
+          font-size: 1.6rem;
+          line-height: 2.6rem;
+          text-align: center;
+          color: #6e757c;
+        }
+      }
+    }
+    &__authorDiv {
+      display: flex;
+      background-color: #fff;
+      border-radius: 0.4rem;
+      &--iconDiv {
+        width: 20%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 7.2rem;
+        svg {
+          background-color: #b9bec7;
+          padding: 1.3rem;
+          border-radius: 5rem;
+        }
+      }
+      &--author {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        width: 30%;
+        &--collectionName {
+          margin: 0;
+          font-style: normal;
+          font-weight: 600;
+          font-size: 1.4rem;
+          line-height: 1.7rem;
+          padding-bottom: 1rem;
+          min-width: 11.9rem;
+        }
+        &--name {
+          padding-bottom: 1rem;
+          margin: 0;
+          font-style: normal;
+          font-weight: 600;
+          font-size: 1rem;
+          line-height: 1.2rem;
+          opacity: 0.5;
+        }
+      }
+    }
+  }
+}

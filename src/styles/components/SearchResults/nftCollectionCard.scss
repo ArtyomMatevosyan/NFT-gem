@@ -1,0 +1,116 @@
+.nftCollectionCard {
+  width: 23.777rem;
+  box-sizing: border-box;
+  border-radius: 0.4rem;
+  // position: relative;
+  &__imgSection {
+    background-color: #d3d9e1;
+    height: 22.405rem;
+    height: 24.467rem;
+
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+    margin-bottom: 0.9rem;
+    &--iconPart {
+      top: 0;
+      position: absolute;
+      width: calc(23.777rem - 3rem);
+      padding: 1.6rem 1.5rem 0 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      div {
+        display: flex;
+        align-items: center;
+        span {
+          padding-left: 0.772rem;
+          font-size: 1.2rem;
+          line-height: 1.5rem;
+          color: #808080;
+        }
+      }
+      svg {
+        cursor: pointer;
+      }
+    }
+    &__imgDiv {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      p {
+        font-size: 1.6rem;
+        line-height: 2.6rem;
+        text-align: center;
+        color: #6e757c;
+      }
+
+      span {
+        position: absolute;
+        right: 0.977rem;
+        bottom: 1.067rem;
+
+        background: #181721;
+        box-shadow: 0rem 0.4rem 2rem rgba(0, 0, 0, 0.5);
+        border-radius: 0.8rem;
+        width: 7.5rem;
+        height: 2.9rem;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        font-family: "Roboto";
+        font-size: 1.2rem;
+        line-height: 1.4rem;
+        cursor: pointer;
+        color: #ffcf53;
+      }
+    }
+  }
+  &__infoSection {
+    padding: 1.535rem 0 1.571rem 0rem;
+    background-color: #fff;
+
+    background: #181721;
+    box-shadow: 0px 0.4rem 2rem rgba(0, 0, 0, 0.5);
+    border-radius: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    > div {
+      max-height: calc(3.329rem / 2);
+      display: flex;
+      width: 100%;
+      max-width: 20rem;
+      justify-content: space-between;
+      align-items: center;
+
+      &:first-child {
+        padding-bottom: 0.392rem;
+        span {
+          font-size: 1.2rem;
+          line-height: 1.5rem;
+          color: #ffffff;
+        }
+        p {
+          font-family: "Roboto";
+          font-size: 1.3rem;
+          line-height: 1.5rem;
+          color: #ffcf53;
+        }
+      }
+      &:last-child {
+        font-size: 0.9rem;
+        line-height: 1.1rem;
+        color: #ffffff;
+        border-top: 1px solid #60666b;
+      }
+    }
+  }
+}

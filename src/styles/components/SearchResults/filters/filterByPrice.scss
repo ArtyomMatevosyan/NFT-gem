@@ -1,0 +1,103 @@
+.filterByPrice {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1rem 3.9rem 1.2rem 1.5rem;
+  box-sizing: border-box;
+  border-radius: 0.5rem;
+  cursor: pointer;
+
+  padding: 1.1rem 1.358rem 0.9rem 1.4rem;
+  border: 1px solid #b1dff7;
+
+  > div {
+    &:first-child {
+      display: flex;
+      gap: 1rem;
+    }
+    &:nth-child(2) {
+      padding: 1.6rem 1.4rem 1.8rem 2.4rem;
+      width: 41.3rem;
+      height: 5.4rem;
+      background-color: #0f0e13;
+      border: 1px solid #60666b;
+      box-sizing: border-box;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+      border-radius: 1rem;
+      left: -960%;
+      flex-direction: row;
+      gap: 4rem;
+      position: absolute;
+      top: 120%;
+      z-index: 99;
+
+      font-size: 1.2rem;
+      color: #eceff4;
+      line-height: 1.5rem;
+      display: flex;
+      max-height: 24.1rem;
+      overflow-y: scroll;
+      scrollbar-color: #6e757c #0f0e13;
+      scrollbar-width: thin;
+
+      &::-webkit-scrollbar {
+        width: 0.3rem;
+      }
+      &::-webkit-scrollbar-thumb {
+        background: #6e757c;
+        border-radius: 5px;
+      }
+
+      > svg {
+        position: absolute;
+        right: 1.8rem;
+        cursor: pointer;
+      }
+
+      > div {
+        display: flex;
+        grid-gap: 0.5rem;
+        p {
+          font-size: 1.2rem;
+          line-height: 1.5rem;
+          color: #eceff4;
+          min-width: 2rem;
+        }
+      }
+
+      :first-child {
+        display: flex;
+        align-items: center;
+        gap: 1.332rem;
+        span {
+          font-size: 1.3rem;
+          line-height: 1.6rem;
+          color: #eceff4;
+          margin-right: 1rem;
+        }
+      }
+      :nth-child(2) {
+        input {
+          width: 3.7rem;
+          height: 1.6rem;
+
+          font-family: "Roboto";
+          font-size: 1.6rem;
+          line-height: 1.9rem;
+          color: #7d7e83;
+          background-color: #0f0e13;
+          border: none;
+          outline: none;
+        }
+      }
+    }
+
+    p {
+      font-size: 1.4rem;
+      line-height: 1.7rem;
+      color: #c4c4c4;
+      margin: 0;
+    }
+  }
+}

@@ -1,0 +1,150 @@
+.creatorContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #0f0e13;
+
+  &__backgroundImg {
+    width: 100%;
+    height: 28.4rem;
+    background: #eceff4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    img {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+  }
+  &__content {
+    margin-top: -7.4rem;
+    width: 79.23%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    > div {
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      flex-direction: column;
+      display: flex;
+      width: 100%;
+      max-width: 105rem;
+    }
+
+    &__userImg {
+      width: 14.7rem;
+      height: 14.7rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      object-fit: cover;
+      border-radius: 50%;
+      background: #d3d9e1;
+      border: 3px solid #ffffff;
+      box-sizing: border-box;
+    }
+    &__userName {
+      display: flex;
+      align-items: center;
+      text-align: center;
+
+      font-size: 3.1rem;
+      line-height: 3.8rem;
+      color: #eceff4;
+    }
+    &__itemsOwners {
+      width: 21.5rem;
+      height: 4rem;
+      display: flex;
+      align-items: center;
+      grid-gap: 1.8rem;
+      &--items,
+      &--owners {
+        width: 10.7rem;
+        height: 3.5rem;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        border: 1px solid #6e757c;
+        box-sizing: border-box;
+        border-radius: 4rem;
+
+        font-family: "Roboto";
+        font-size: 1.6rem;
+        line-height: 1.9rem;
+
+        color: #eceff4;
+      }
+    }
+    &__searchPart {
+      width: 100%;
+      height: 4.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2.669rem;
+      padding-top: 2.45rem;
+      max-width: 101.5rem;
+      padding-right: 3.5rem;
+      &--search {
+        width: 100%;
+        height: 100%;
+        max-width: 40.6rem;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid #c4c4c4;
+        grid-gap: 1.4rem;
+        input {
+          width: 93%;
+          height: 95%;
+          border: none;
+          outline: none;
+
+          font-family: "Roboto";
+          font-size: 1.6rem;
+          line-height: 1.9rem;
+          background-color: #0f0e13;
+        }
+      }
+      &--price {
+        width: 35.9%;
+        height: 100%;
+        padding-left: 1.8rem;
+        padding-right: 1.8rem;
+        border: none;
+        outline: none;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        box-sizing: border-box;
+        border-radius: 4px;
+      }
+      &--button {
+        width: 10.2rem;
+        height: 100%;
+        background: #000000;
+        border-radius: 4px;
+        font-family: Montserrat;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 17px;
+        text-align: center;
+        color: #ffffff;
+        border: none;
+        outline: none;
+      }
+    }
+    &__sliderSection {
+      text-align: left;
+      width: 100%;
+      padding-top: 5.3rem;
+    }
+  }
+}
