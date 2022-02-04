@@ -11,7 +11,7 @@
     justify-content: center;
     position: relative;
     filter: blur(12px);
-    opacity: 0.4;
+    background-color: #0f0e13;
   }
 
   &__container {
@@ -30,4 +30,11 @@
   }
 }
 
-
+@media (max-width: 425px) {
+  .create {
+    &__container {
+      margin-top: 7rem;
+      margin-bottom: 6rem;
+    }
+  }
+}

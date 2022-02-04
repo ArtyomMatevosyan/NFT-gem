@@ -1,14 +1,14 @@
 .faq {
   width: 100%;
   background-color: #181721;
-  border-bottom: 1px solid #b9bec7;
+  border-bottom: 1px solid rgba(110, 117, 124, 0.3);
 
   &__upperPart {
     display: flex;
     justify-content: center;
     margin: 0 auto;
     max-width: 114rem;
-    padding: 10rem 18.46rem 16.6rem 18.46rem;
+    padding: 4.9rem 18.46rem 7rem 18.46rem;
     &__textSection {
       padding-right: 11.528%;
       display: flex;
@@ -37,9 +37,7 @@
   }
   &__faqSection {
     padding: 10.5rem 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include center;
     background-color: #0f0e13;
     display: flex;
     flex-direction: column;
@@ -57,6 +55,7 @@
           line-height: 2.9rem;
           color: #e5e5e5;
           margin: 0;
+          margin-left: 2.8rem;
           padding-bottom: 4.7rem;
         }
         display: flex;
@@ -76,7 +75,7 @@
             transition: max-height 0.7s ease-out;
           }
           &--question {
-          cursor: pointer;
+            cursor: pointer;
 
             width: 100%;
             font-style: normal;
@@ -98,13 +97,11 @@
           }
 
           &--iconDiv {
-            border-radius: 5rem;
             width: 0.8rem;
             height: 0.8rem;
+            @include center;
             border: 1px solid rgba(255, 210, 94, 0.9375);
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            border-radius: 5rem;
           }
           &--answerDiv {
             width: 100%;
@@ -120,6 +117,7 @@
             &--answer {
               font-size: 1.8rem;
               line-height: 3.2rem;
+              font-weight: 500;
               color: #64666d;
               max-width: 89.9rem;
               overflow-y: scroll;
@@ -146,14 +144,12 @@
   .faq {
     &__upperPart {
       padding: 5rem 0;
-      justify-content: center;
+      @include center;
       flex-direction: column;
-      align-items: center;
       text-align: center;
       &__textSection {
         padding: 0;
         padding-bottom: 5rem;
-
         p {
           text-align: center;
         }

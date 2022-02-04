@@ -1,18 +1,25 @@
 .filterByCollection {
   position: relative;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 1rem 3.9rem 1.2rem 1.5rem;
+
+  padding-left: 1.5rem;
   box-sizing: border-box;
   border-radius: 0.5rem;
+
   cursor: pointer;
-  min-width: 20.3rem;
+
+  width: 18.5rem;
+  height: 3.8rem;
 
   > div {
     &:first-child {
+      grid-gap: 1rem;
+      height: 100%;
       display: flex;
-      gap: 1rem;
+      align-items: center;
     }
     &:nth-child(2) {
       width: 100%;
@@ -20,14 +27,17 @@
       top: 120%;
       left: 0;
       z-index: 99;
+
       background-color: #0f0e13;
       border: 1px solid #60666b;
       box-sizing: border-box;
       box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
       border-radius: 1rem;
+
       font-size: 1.2rem;
       line-height: 1.5rem;
       color: #eceff4;
+
       display: flex;
       flex-direction: column;
       max-height: 24.1rem;
@@ -52,6 +62,9 @@
           img {
             margin-top: 1.9rem;
           }
+          span {
+            margin-top: 2.7rem;
+          }
         }
         &:last-child {
           p {
@@ -64,7 +77,6 @@
           color: #eceff4;
           min-width: 2rem;
           width: 100%;
-          // padding-left: 2.5rem;
           padding: 0.7rem 0 0.7rem calc(1.3rem + 2.5rem);
         }
         img {
@@ -72,6 +84,17 @@
           z-index: -1111;
           margin-top: 0.5rem;
           margin-left: 1.3rem;
+        }
+        span {
+          display: block;
+          width: 0.42rem;
+          height: 0.42rem;
+          border-radius: 50%;
+          background-color: #f0c659;
+
+          margin-top: 1.4rem;
+          position: absolute;
+          right: 1.2rem;
         }
       }
     }
@@ -81,6 +104,28 @@
       line-height: 1.7rem;
       color: #c4c4c4;
       margin: 0;
+    }
+  }
+}
+@media (max-width: 768px) {
+  .filterByCollection {
+    min-width: 13rem;
+  }
+}
+@media (max-width: 672px) {
+  .filterByCollection {
+    height: 3rem;
+    width: 16rem;
+  }
+}
+@media (max-width: 420px) {
+  .filterByCollection {
+    width: 13rem;
+    > div {
+      p {
+        font-size: 1.2rem;
+        line-height: 1.5rem;
+      }
     }
   }
 }

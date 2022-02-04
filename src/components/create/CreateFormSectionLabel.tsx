@@ -5,7 +5,6 @@ import { CreateFormSectionLabelProps } from "./model";
 const CreateFormSectionLabel: FC<CreateFormSectionLabelProps> = ({
   name,
   placeholder,
-  // text,
   type,
   hide,
 }) => {

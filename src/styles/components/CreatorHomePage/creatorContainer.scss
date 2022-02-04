@@ -1,7 +1,5 @@
 .creatorContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include center;
   flex-direction: column;
   background-color: #0f0e13;
 
@@ -9,9 +7,7 @@
     width: 100%;
     height: 28.4rem;
     background: #eceff4;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include center;
     flex-direction: column;
     img {
       width: 100%;
@@ -26,21 +22,17 @@
     flex-direction: column;
     align-items: center;
     > div {
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      flex-direction: column;
-      display: flex;
       width: 100%;
       max-width: 105rem;
+      @include center;
+      flex-direction: column;
+      text-align: center;
     }
 
     &__userImg {
       width: 14.7rem;
       height: 14.7rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      @include center;
       object-fit: cover;
       border-radius: 50%;
       background: #d3d9e1;
@@ -67,9 +59,7 @@
         width: 10.7rem;
         height: 3.5rem;
 
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        @include center;
 
         border: 1px solid #6e757c;
         box-sizing: border-box;
@@ -85,13 +75,11 @@
     &__searchPart {
       width: 100%;
       height: 4.5rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      @include center;
       gap: 2.669rem;
       padding-top: 2.45rem;
       max-width: 101.5rem;
-      padding-right: 3.5rem;
+      // padding-right: 3.5rem;
       &--search {
         width: 100%;
         height: 100%;
@@ -100,6 +88,7 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+
         border-bottom: 1px solid #c4c4c4;
         grid-gap: 1.4rem;
         input {
@@ -128,23 +117,55 @@
       &--button {
         width: 10.2rem;
         height: 100%;
-        background: #000000;
-        border-radius: 4px;
-        font-family: Montserrat;
-        font-style: normal;
-        font-weight: 600;
-        font-size: 14px;
-        line-height: 17px;
-        text-align: center;
-        color: #ffffff;
-        border: none;
-        outline: none;
+        @include buttonStyle;
       }
     }
     &__sliderSection {
       text-align: left;
       width: 100%;
       padding-top: 5.3rem;
+    }
+  }
+}
+@media (max-width: 340px) {
+  .creatorContainer {
+    &__content {
+      &__userName {
+        font-size: 1.6rem;
+        line-height: 2rem;
+        margin-top: 4rem;
+        margin-bottom: 2rem;
+      }
+      &__userImg {
+        width: 12.8rem;
+        height: 12.8rem;
+        > img {
+          width: 12.8rem;
+          height: 12.8rem;
+        }
+      }
+      &__itemsOwners {
+        width: unset;
+        grid-gap: 1.6rem;
+        &--items,
+        &--owners {
+          width: 7.9rem;
+          font-size: 1.2rem;
+          line-height: 1.4rem;
+        }
+      }
+      &__searchPart {
+        &--search {
+          grid-gap: 0.9rem;
+          > input {
+            font-size: 1.2rem;
+            line-height: 1.4rem;
+          }
+        }
+      }
+    }
+    &__backgroundImg {
+      max-height: 14.6rem;
     }
   }
 }

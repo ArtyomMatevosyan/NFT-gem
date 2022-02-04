@@ -1,14 +1,12 @@
-import {
-  FC,
-  // useEffect
-} from "react";
+import { FC } from "react";
+
+import { shallowEqual, useDispatch } from "react-redux";
 
 import {
-  shallowEqual,
-  // useDispatch
-} from "react-redux";
-
-// import { connectWallet, menuPopup } from "../redux/features/create/createSlice";
+  changeMobileMenuState,
+  connectWallet,
+  menuPopup,
+} from "../redux/features/create/createSlice";
 import { useAppSelector } from "../redux/hook";
 
 import Footer from "./footer/Footer";
@@ -22,35 +20,36 @@ declare global {
 }
 
 const Layout: FC = ({ children }) => {
-  const {
-    progress,
-    connectWalletState,
-    createPopupState,
-    menuPopupState,
-    // account,
-  } = useAppSelector(
-    ({ createData,
-      //  walletData
-       }) => ({
-      progress: createData.progress,
-      connectWalletState: createData.connectWalletState,
-      createPopupState: createData.createPopupState,
-      menuPopupState: createData.menuPopupState,
-      // account: walletData.account,
-    }),
-    shallowEqual
-  );
+  const { progress, connectWalletState, createPopupState, menuPopupState } =
+    useAppSelector(
+      ({ createData }) => ({
+        progress: createData.data.progress,
+        connectWalletState: createData.data.connectWalletState,
+        createPopupState: createData.data.createPopupState,
+        menuPopupState: createData.data.menuPopupState,
+      }),
+      shallowEqual
+    );
+  const dispatch = useDispatch();
 
-  // const dispatch = useDispatch();
-  // useEffect(() => {
-  //   if (account?.length === 42) {
-  //     dispatch(connectWallet(false));
-  //     dispatch(menuPopup(true));
-  //   }
-  // }, [dispatch, account]);
-
+  const handleClickLayout = (e: any) => {
+    if (e.target.className === "headerMobileMenu") {
+      dispatch(changeMobileMenuState(false));
+    }
+    if (
+      typeof e.target.className === "string" &&
+      !e.target.className.includes("menuPopup") &&
+      e.target.className.length !== 0
+    ) {
+      dispatch(menuPopup(false));
+    }
+    if (e.target.className === "connectWallet") {
+      dispatch(connectWallet(false));
+      localStorage.removeItem("clickedStatus");
+    }
+  };
   return (
-    <div className="layout">
+    <div className="layout" onClick={handleClickLayout}>
       <Header />
       <div
         className={progress === 0 ? "layout__buffer" : "layout__buffer--blur"}
@@ -66,7 +65,6 @@ const Layout: FC = ({ children }) => {
           <ConnectWallet />
         </div>
       </div>
-
       <div
         className={
           menuPopupState ? "layout__menuPopup" : "layout__menuPopup--hide"
@@ -76,7 +74,6 @@ const Layout: FC = ({ children }) => {
           <MenuPopup />
         </div>
       </div>
-
       <div
         className={
           connectWalletState || createPopupState || menuPopupState

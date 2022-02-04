@@ -5,17 +5,16 @@ import { AppThunk } from "../../store";
 
 import {
   CollectionAndTypeFilterTypes,
-  // CollectionFilterTypes,
   IMarketplaceState,
   MarketplaceDataType,
   PriceFilterTypes,
-  // TypeFilterTypes,
 } from "./model";
 
 const initialState: IMarketplaceState = {
   loading: false,
   error: "",
-  data: null,
+  data: [],
+  filteredData: [],
   filters: {
     type: [],
     collection: [],
@@ -25,6 +24,7 @@ const initialState: IMarketplaceState = {
     },
     sort: null,
   },
+  mergedFilters: [],
 };
 
 const marketplaceSlice = createSlice({
@@ -57,12 +57,28 @@ const marketplaceSlice = createSlice({
         }
       }
     },
+    setTypeCollectionDataEmpty: (state, { payload }: PayloadAction<string>) => {
+      payload === "filterByType"
+        ? (state.filters.type = [])
+        : (state.filters.collection = []);
+    },
+    addTypeCollectionFilterTextContent: (
+      state,
+      { payload }: PayloadAction<string>
+    ) => {
+      if (!state.mergedFilters.includes(payload)) {
+        state.mergedFilters = [...state.mergedFilters, payload];
+      } else {
+        const index = state.mergedFilters.indexOf(payload);
+        state.mergedFilters.splice(index, 1);
+      }
+      console.log(state.mergedFilters);
+    },
 
     setPriceFilter: (state, { payload }: PayloadAction<PriceFilterTypes>) => {
       if (
         state.filters.price.to !== payload.to ||
         state.filters.price.from !== payload.from
-        // && (payload.to as number) > (payload.from as number)
       ) {
         state.filters.price.from = payload.from;
         state.filters.price.to = payload.to;
@@ -80,6 +96,24 @@ const marketplaceSlice = createSlice({
     getMarketplaceDataFailure: (state, { payload }: PayloadAction<string>) => {
       state.error = payload;
     },
+
+    // filtrateDataByType: (
+    //   state,
+    //   { payload }: PayloadAction<MarketplaceDataType[]>
+    // ) => {
+    //   state.filteredData = [...state.filteredData, ...payload];
+    // },
+    // setEmptyFilteredData: (state) => {
+    //   state.filteredData = [];
+    // },
+
+    // filtrateDataByCollection: (
+    //   state,
+    //   { payload }: PayloadAction<MarketplaceDataType[]>
+    // ) => {
+    //   state.filteredData = [];
+    //   state.filteredData = [...state.filteredData, ...payload];
+    // },
   },
 });
 
@@ -100,11 +134,14 @@ export const fetchMarketplaceData = (): AppThunk => {
 export const {
   setLoading,
   addTypeCollectionFilter,
-  // setTypeFilter,
-  // setCollectionFilter,
+  setTypeCollectionDataEmpty,
+  addTypeCollectionFilterTextContent,
+  // setEmptyFilteredData,
   setPriceFilter,
   getMarketplaceDataFailure,
   getMarketplaceDataSuccess,
+  // filtrateDataByType,
+  // filtrateDataByCollection,
 } = marketplaceSlice.actions;
 
 export default marketplaceSlice.reducer;

@@ -2,17 +2,11 @@
   width: 23.777rem;
   box-sizing: border-box;
   border-radius: 0.4rem;
-  // position: relative;
   &__imgSection {
-    background-color: #d3d9e1;
-    height: 22.405rem;
     height: 24.467rem;
+    background-color: #16151a;
 
     position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
     box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.5);
     border-radius: 20px;
     margin-bottom: 0.9rem;
@@ -30,11 +24,12 @@
           padding-left: 0.772rem;
           font-size: 1.2rem;
           line-height: 1.5rem;
-          color: #808080;
+          color: #fff;
         }
       }
       svg {
         cursor: pointer;
+        color: #312f49;
       }
     }
     &__imgDiv {
@@ -59,10 +54,7 @@
         border-radius: 0.8rem;
         width: 7.5rem;
         height: 2.9rem;
-
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        @include center;
 
         font-family: "Roboto";
         font-size: 1.2rem;
@@ -79,10 +71,8 @@
     background: #181721;
     box-shadow: 0px 0.4rem 2rem rgba(0, 0, 0, 0.5);
     border-radius: 2rem;
-    display: flex;
+    @include center;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
     > div {
       max-height: calc(3.329rem / 2);
       display: flex;
@@ -96,6 +86,7 @@
         span {
           font-size: 1.2rem;
           line-height: 1.5rem;
+          font-weight: 500;
           color: #ffffff;
         }
         p {
@@ -110,6 +101,11 @@
         line-height: 1.1rem;
         color: #ffffff;
         border-top: 1px solid #60666b;
+        span {
+          svg {
+            margin-left: 0.857px;
+          }
+        }
       }
     }
   }

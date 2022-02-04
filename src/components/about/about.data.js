@@ -1,30 +1,3 @@
-export const aboutStepsData = [
-  {
-    id: 1,
-    imgUrl: "",
-    step: 1,
-    info: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Egestas ligula risus sed lacus nec, pellentesque at maecenas. Nisi, odio risus nunc cras.",
-  },
-  {
-    id: 2,
-    imgUrl: "",
-    step: 2,
-    info: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Egestas ligula risus sed lacus nec, pellentesque at maecenas. Nisi, odio risus nunc cras.",
-  },
-  {
-    id: 3,
-    imgUrl: "",
-    step: 3,
-    info: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Egestas ligula risus sed lacus nec, pellentesque at maecenas. Nisi, odio risus nunc cras.",
-  },
-  {
-    id: 4,
-    imgUrl: "",
-    step: 4,
-    info: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Egestas ligula risus sed lacus nec, pellentesque at maecenas. Nisi, odio risus nunc cras.",
-  },
-];
-
 export const sellNftData = [
   {
     id: 1,

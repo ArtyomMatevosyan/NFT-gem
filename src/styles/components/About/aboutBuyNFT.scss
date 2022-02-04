@@ -1,12 +1,16 @@
+@import "../../utils/mixin.scss";
+
 .buyAndSell__content__buyNFT {
   border-bottom: 1px solid #818287;
   box-sizing: border-box;
   display: flex;
-  cursor: pointer;
 
   align-items: center;
   flex-direction: column;
-  margin-top: 2.25rem;
+
+  padding-top: 1.55rem;
+
+  cursor: pointer;
   &:last-child {
     border-bottom: unset;
   }
@@ -16,8 +20,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-top: 1.7rem;
-    margin-bottom: 1rem;
+
     p {
       font-weight: 600;
       font-size: 2rem;
@@ -30,11 +33,8 @@
     div {
       width: 5.4rem;
       height: 4.5rem;
-      // background: #eceff4;
+      @include center;
       border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
     }
   }
 
@@ -46,7 +46,6 @@
       margin-top: 2.45rem;
     }
     width: 100%;
-    // max-height: 183.6rem;
     max-height: 218.7rem;
     height: auto;
     margin-top: 2.45rem;
@@ -70,9 +69,9 @@
         height: 100%;
 
         p {
-          font-family: "Roboto";
+          font-family: "Montserrat";
+          font-weight: 500;
           font-style: normal;
-          font-weight: normal;
           font-size: 1.6rem;
           line-height: 3.2rem;
           margin-top: 1.1rem;
@@ -88,13 +87,10 @@
           width: 73.96%;
           height: 26.6rem;
           background: #091021;
-
+          @include center;
+          flex-direction: column;
           margin-left: 13%;
           border-radius: 4px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          flex-direction: column;
           p {
             font-size: 1.6rem;
             line-height: 2.6rem;
@@ -103,6 +99,28 @@
           }
         }
       }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .buyAndSell__content__buyNFT__openContent {
+    max-height: 362rem;
+    transition: max-height 1.5s ease-in;
+
+    &--hide {
+      transition: max-height 1.5s ease-out;
+    }
+
+    &--oneStep {
+      height: unset;
+    }
+  }
+}
+@media (max-width: 320px) {
+  .buyAndSell__content__buyNFT__openContent {
+    &--oneStep {
+      height: unset;
     }
   }
 }

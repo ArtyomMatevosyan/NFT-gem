@@ -1,4 +1,4 @@
-import { ReactComponent as ImageIcon } from "../../assets/create/imgIcon.svg";
+import { ReactComponent as DeFiPng } from "../../assets/details/defiPng.svg";
 import DetailsSlider from "../GempoolDetails/DetailsSlider";
 import GempoolDetailsInfoComp from "../GempoolDetails/GempoolDeatilsInfoComp";
 import GempoolDetailsTableWithThreeColumn from "../GempoolDetails/GempoolDetailsTableWithThreeColumn";
@@ -17,13 +17,12 @@ const CardCheckDetails = () => {
         <div className="gempoolDetails__content__upperPart">
           <div className="gempoolDetails__content__upperPart__leftSection">
             <div className="gempoolDetails__content__upperPart__leftSection--imgDiv">
-              <ImageIcon />
-              <p>Photo</p>
+              <DeFiPng />
             </div>
             <DetailsSlider />
           </div>
           <GempoolDetailsInfoComp
-            nft="NFT Lootbox"
+            nft="NFT Loot"
             title="Land o Loot"
             secondBtn="Open"
             description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Egestas ligula risus sed lacus nec, pellentesque at maecenas. Nisi, odio risus nunc cras. Sollicitudin nulla orci vitae ut turpis vitae neque."

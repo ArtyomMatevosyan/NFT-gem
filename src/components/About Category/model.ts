@@ -5,8 +5,7 @@ export type AboutCategoryProps = {
 
 type AboutCategoryDataType = {
   title: string;
-  descriptionOne: string;
-  descriptionTwo: string;
+  description: string;
 };
 
 type AboutCategoryPropsDataType = {
@@ -16,7 +15,7 @@ type AboutCategoryPropsDataType = {
 };
 
 export type AboutCategoryActionProps = {
-  imgUrl: string;
   title: string;
   description: string;
+  imgUrl: string;
 };

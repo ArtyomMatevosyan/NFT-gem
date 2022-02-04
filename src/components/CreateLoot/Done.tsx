@@ -1,47 +1,59 @@
-import { FC } from "react";
+import { FC, useEffect } from "react";
 
-import { ReactComponent as FacebookIcon } from "../../assets/create/facebook.svg";
-import { ReactComponent as ImageIcon } from "../../assets/create/imgIcon.svg";
-import { ReactComponent as LinkChain } from "../../assets/create/linkChain.svg";
-import { ReactComponent as TelegramIcon } from "../../assets/create/telegram.svg";
-import { ReactComponent as TwitterIcon } from "../../assets/create/twitter.svg";
-import { ReactComponent as CloseIcon } from "../../assets/wallet/close.svg";
+import { ReactComponent as LinkChain } from "../../assets/done/copy.svg";
+import { ReactComponent as DefiBox } from "../../assets/done/defiBox.svg";
+import { ReactComponent as FacebookIcon } from "../../assets/done/facebook.svg";
+import { ReactComponent as TelegramIcon } from "../../assets/done/telegram.svg";
+import { ReactComponent as TwitterIcon } from "../../assets/done/twitter.svg";
 
 import { DoneProps } from "./model";
 
 const Done: FC<DoneProps> = ({ closeModal }) => {
+  useEffect(() => {
+    const close = (e: any) => {
+      if (e.key === "Escape") {
+        closeModal();
+      }
+    };
+    window.addEventListener("keydown", close);
+    return () => {
+      window.removeEventListener("keydown", close);
+    };
+  }, [closeModal]);
+
+  const handleCloseDoneModal = (e: any) => {
+    if (e.target.className === "done__modal") {
+      closeModal();
+    }
+  };
   return (
-    <div className="done__modal">
+    <div className="done__modal" onClick={handleCloseDoneModal}>
       <div className="done">
-        <div className="done--closeDiv" onClick={closeModal}>
-          <CloseIcon />
-        </div>
         <div className="done__header">
-          <span>Done</span>
+          <span>Done!</span>
           <p>Great! You just created - Item Name</p>
         </div>
         <div className="done__imageSection">
-          <div className="done__imageSection__wrapper">
-            <div className="done__imageSection__wrapper--imgDiv">
-              <ImageIcon />
-            </div>
-            <p>Photo</p>
-          </div>
+          <DefiBox />
         </div>
         <div className="done__share">
           <p>Share</p>
-          <div className="done__share__socialDiv">
-            <a href="https://www.facebook.com/">
+          <div>
+            <a
+              href="https://www.facebook.com/"
+              target="_blank"
+              rel="noreferrer"
+            >
               <FacebookIcon />
             </a>
-            <a href="https://twitter.com/">
+            <a href="https://twitter.com/" target="_blank" rel="noreferrer">
               <TwitterIcon />
             </a>
-            <a href="https://telegram.org/">
+            <a href="https://telegram.org/" target="_blank" rel="noreferrer">
               <TelegramIcon />
             </a>
             <button>
-              <LinkChain />{" "}
+              <LinkChain />
             </button>
           </div>
         </div>

@@ -17,7 +17,7 @@ import { gempoolFakeData } from "./gempoolFakeData";
 
 const Gempool = () => {
   const { progress } = useAppSelector(
-    ({ createData }) => ({ progress: createData.progress }),
+    ({ createData }) => ({ progress: createData.data.progress }),
     shallowEqual
   );
   const lootRef = useRef<any>(null);
@@ -51,39 +51,33 @@ const Gempool = () => {
               <CreateFormSectionLabel
                 name="name"
                 type="text"
-                // text="Name*"
                 placeholder="Item Name"
               />
               <CreateFormSectionLabel
                 name="startingPrice"
                 type="text"
-                // text="Starting Price"
                 placeholder="Enter location"
               />
               <div className="create__container__formSection--minMaxDiv">
                 <CreateFormSectionLabel
                   name="minimum"
                   type="text"
-                  // text="Minimum staking time"
                   placeholder="One Day"
                 />
                 <CreateFormSectionLabel
                   name="maximum"
                   type="text"
-                  // text="Maximum staking time"
                   placeholder="7 Day"
                 />
               </div>
               <CreateFormSectionLabel
                 name="priceIncreaseFactor"
                 type="text"
-                // text="Price Increase Factor"
                 placeholder="100"
               />
               <CreateFormSectionLabel
                 name="maximumClaims"
                 type="text"
-                // text="Maximum Claims"
                 placeholder="0"
               />
               <CreateFormSectionDescription
@@ -95,12 +89,7 @@ const Gempool = () => {
             </div>
             <div ref={createBtnRef}></div>
             {/* empty div for closing modal and continiue from current position */}
-            <CreateLootSection
-              // title="Collection"
-              // description="This is the collection where your item will appear."
-              data={gempoolFakeData}
-              // createBtnText="+ Create collection"
-            />
+            <CreateLootSection data={gempoolFakeData} />
             <CreateBlockchainSection />
             <CreateBtn text="Create" onClick={handleClick} />
           </div>

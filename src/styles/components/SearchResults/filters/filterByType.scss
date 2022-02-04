@@ -1,18 +1,25 @@
 .filterByType {
   position: relative;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 1rem 3.9rem 1.2rem 1.5rem;
+
+  padding-left: 1.5rem;
+
   box-sizing: border-box;
   border-radius: 0.5rem;
   cursor: pointer;
-  min-width: 13.5rem;
+
+  width: 13.5rem;
+  height: 3.8rem;
 
   > div {
     &:first-child {
       display: flex;
-      gap: 1rem;
+      grid-gap: 1rem;
+      align-items: center;
+      height: 100%;
     }
     &:nth-child(2) {
       width: 100%;
@@ -47,7 +54,10 @@
       }
       > div {
         display: flex;
-        padding: 0.7rem 0 0.7rem 1.3rem;
+        padding: 0.7rem 1.5rem 0.7rem 1.3rem;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
         &:first-child {
           padding-top: 2.1rem;
         }
@@ -59,6 +69,17 @@
           line-height: 1.5rem;
           color: #eceff4;
           min-width: 2rem;
+          width: 100%;
+        }
+        span {
+          display: block;
+          width: 0.42rem;
+          height: 0.42rem;
+          border-radius: 50%;
+          background-color: #f0c659;
+
+          position: absolute;
+          right: 1.2rem;
         }
       }
     }
@@ -68,6 +89,29 @@
       line-height: 1.7rem;
       color: #c4c4c4;
       margin: 0;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .filterByType {
+    min-width: 10rem;
+  }
+}
+@media (max-width: 672px) {
+  .filterByType {
+    height: 3rem;
+    width: 16rem;
+  }
+}
+@media (max-width: 420px) {
+  .filterByType {
+    width: 13rem;
+    > div {
+      p {
+        font-size: 1.2rem;
+        line-height: 1.5rem;
+      }
     }
   }
 }

@@ -3,7 +3,11 @@ import { useRef } from "react";
 import { shallowEqual, useDispatch } from "react-redux";
 
 import { ReactComponent as LootboxIconSmall } from "../../assets/create/lootboxIconSmall.svg";
-import { changeProgress } from "../../redux/features/create/createSlice";
+import {
+  changeCreateBlockchainState,
+  changeCreateLootState,
+  changeProgress,
+} from "../../redux/features/create/createSlice";
 import { useAppSelector } from "../../redux/hook";
 import CreateLoot from "../CreateLoot/CreateLoot";
 import Done from "../CreateLoot/Done";
@@ -19,7 +23,7 @@ import { lootboxFakeData } from "./lootboxFakeData";
 
 const CreateContainer = () => {
   const { progress } = useAppSelector(
-    ({ createData }) => ({ progress: createData.progress }),
+    ({ createData }) => ({ progress: createData.data.progress }),
     shallowEqual
   );
 
@@ -42,12 +46,33 @@ const CreateContainer = () => {
     executeBtnScroll();
   };
 
+  const handleCreatePageClick = (e: any) => {
+    if (
+      e.target.className !== "createBlockchain__upperPart" &&
+      e.target.className !== "createLootSection__loots__upperPart" &&
+      e.target.parentElement.parentElement.parentElement.className !==
+        "createBlockchain__secondPart" &&
+      e.target.parentElement.parentElement.className !==
+        "createLootSection__loots__secondPart"
+    ) {
+      dispatch(changeCreateBlockchainState(false));
+      dispatch(changeCreateLootState(false));
+    }
+  };
+
   return (
     <>
       <div className="create--scroll" ref={lootRef}></div>
-      <div className={progress !== 0 ? "create--blur" : "create"}>
+      <div
+        className={progress !== 0 ? "create--blur" : "create"}
+        onClick={handleCreatePageClick}
+      >
         <div className="create__container--size">
-          <div className="create__container">
+          <div
+            className={
+              progress !== 0 ? "create--blur__container" : "create__container"
+            }
+          >
             <CreateTitle text="Create new Lootbox">
               <LootboxIconSmall />
             </CreateTitle>
@@ -56,34 +81,29 @@ const CreateContainer = () => {
               <CreateFormSectionLabel
                 name="name"
                 type="text"
-                // text="Name*"
                 placeholder="Name"
               />
               <CreateFormSectionLabel
                 name="openPrice"
                 type="text"
-                // text="Open Price"
-                placeholder="Enter location"
+                placeholder="Open price - Enter location"
               />
               <div className="create__container__formSection--minMaxDiv">
                 <CreateFormSectionLabel
                   name="minimum"
                   type="text"
-                  // text="Minimum Loot Awarded"
-                  placeholder="1"
+                  placeholder="Minimum Loot Awarded"
                 />
                 <CreateFormSectionLabel
                   name="maximum"
                   type="text"
-                  // text="Maximum Loot Awarded"
-                  placeholder="3"
+                  placeholder="Maximum Loot awarded"
                 />
               </div>
               <CreateFormSectionLabel
                 name="maximumOpens"
                 type="text"
-                // text="Maximum Opens"
-                placeholder="100"
+                placeholder="Maximum opens"
               />
               <CreateFormSectionDescription
                 title="Description"
@@ -94,12 +114,7 @@ const CreateContainer = () => {
             </div>
             <div ref={createBtnRef}></div>{" "}
             {/* empty div for closing modal and continiue from current position */}
-            <CreateLootSection
-              // title="Loot"
-              // description="The is the pool of items that the lootbox will award to openers"
-              data={lootboxFakeData}
-              // createBtnText="+ Create loot"
-            />
+            <CreateLootSection data={lootboxFakeData} />
             <CreateBlockchainSection />
             <CreateBtn text="Create" onClick={handleClick} />
           </div>

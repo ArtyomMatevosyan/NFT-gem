@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 
 import { fetchMarketplaceData } from "../../redux/features/marketplace/marketplaceSlice";
 
-import PaginationSection from "./PaginationSection";
+// import PaginationSection from "./PaginationSection";
 import ResultsSection from "./ResultsSection";
 import SearchSection from "./SearchSection";
 
@@ -17,19 +17,48 @@ const SearchResults = () => {
 
   const scrollTopRef = useRef<any>(null);
 
-  const [pageNum, setPageNum] = useState<number>(1);
+  const [typeFilterState, setTypeFilterState] = useState<boolean>(false);
+  const [collectionFilterState, setCollectionFilterState] =
+    useState<boolean>(false);
+  const [priceFilterState, setPriceFilterState] = useState<boolean>(false);
+  const [sortFilterState, setSortFilterState] = useState<boolean>(false);
+
+  const handleSearchPageClick = (e: any) => {
+    if (
+      e.target.className.length &&
+      e.target.className.length !== 0 &&
+      e.target.className !== "focus-visible"
+    ) {
+      setCollectionFilterState(false);
+      setPriceFilterState(false);
+      setSortFilterState(false);
+      setTypeFilterState(false);
+    }
+  };
 
   return (
-    <div className="searchResult">
+    <div
+      className={sortFilterState ? "searchResult--blur" : " searchResult"}
+      onClick={handleSearchPageClick}
+    >
       <div className="searchResult__scrollTop" ref={scrollTopRef}></div>
-      <SearchSection />
+      <SearchSection
+        setCollectionFilterState={setCollectionFilterState}
+        setPriceFilterState={setPriceFilterState}
+        setSortFilterState={setSortFilterState}
+        setTypeFilterState={setTypeFilterState}
+        typeFilterState={typeFilterState}
+        collectionFilterState={collectionFilterState}
+        priceFilterState={priceFilterState}
+        sortFilterState={sortFilterState}
+      />
       <div className="searchResult__openCollection">
-        <ResultsSection pageNum={pageNum} />
-        <PaginationSection
+        <ResultsSection pageNum={1} />
+        {/* <PaginationSection
           pageNum={pageNum}
           scrollTopRef={scrollTopRef}
           setPageNum={setPageNum}
-        />
+        /> */}
       </div>
     </div>
   );

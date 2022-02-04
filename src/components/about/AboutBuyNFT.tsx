@@ -12,21 +12,18 @@ const AboutBuyNFT = () => {
   const [isOpenBuy, setIsOpenBuy] = useState<boolean>(false);
 
   return (
-    <div className="buyAndSell__content__buyNFT" onClick={() => setIsOpenBuy(!isOpenBuy)}>
+    <div
+      className="buyAndSell__content__buyNFT"
+      onClick={() => setIsOpenBuy(!isOpenBuy)}
+    >
       <div className="buyAndSell__content__buyNFT--content">
         <p>How to buy NFTs?</p>
         {isOpenBuy ? (
-          <div
-            // onClick={() => setIsOpenBuy(!isOpenBuy)}
-            className="buyAndSell__content__buyNFT--content--minus "
-          >
+          <div className="buyAndSell__content__buyNFT--content--minus ">
             <MinusIcon />
           </div>
         ) : (
-          <div
-            // onClick={() => setIsOpenBuy(!isOpenBuy)}
-            className="buyAndSell__content__buyNFT--content--plus"
-          >
+          <div className="buyAndSell__content__buyNFT--content--plus">
             <PlusIcon />
           </div>
         )}

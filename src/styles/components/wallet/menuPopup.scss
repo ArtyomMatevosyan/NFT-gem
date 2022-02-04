@@ -1,12 +1,18 @@
 .menuPopup {
-  width: 35.2rem;
+  width: 100vw;
+  height: 100vh;
   box-sizing: border-box;
   border-radius: 0.4rem;
   margin-bottom: 0.5rem;
+  display: flex;
+  justify-content: flex-end;
+
   &--hide {
     display: none;
   }
   &__container {
+    max-width: 35.2rem;
+    max-height: 46.3rem;
     display: flex;
     flex-direction: column;
     row-gap: 1.3rem;
@@ -23,15 +29,12 @@
         &--titleDiv {
           display: flex;
           align-items: center;
+          justify-content: space-between;
           p {
             font-size: 2.1rem;
             line-height: 2.6rem;
             color: #d3d9e1;
             margin: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 80%;
           }
         }
         &--tokenDiv {
@@ -42,11 +45,9 @@
           width: 100%;
           margin: 0 auto;
           > div {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
             width: 100%;
+            @include center;
+            flex-direction: column;
             margin-right: 16rem;
           }
           p {
@@ -70,9 +71,7 @@
       &__balance {
         &--balanceDiv {
           padding-top: 1.8rem;
-          display: flex;
-          justify-content: center;
-          align-items: center;
+          @include center;
           > div {
             display: flex;
             flex-direction: column;
@@ -129,5 +128,52 @@
   }
   100% {
     transform: rotate(0deg);
+  }
+}
+@media (max-width: 375px) {
+  .menuPopup {
+    &__container {
+      max-width: 28.4rem;
+      width: 100%;
+      &__upperPart {
+        border-radius: 2rem 0 0 2rem;
+        padding-right: 3.4rem;
+        &__balance {
+          &--balanceDiv {
+            justify-content: flex-start;
+            > div {
+              align-items: flex-start;
+              > p {
+                font-size: 1.2rem;
+                line-height: 1.5rem;
+                padding-right: 1.275rem;
+                margin-bottom: 3.1rem;
+              }
+            }
+          }
+        }
+        &__myWalletDiv {
+          &--titleDiv {
+            > p {
+              font-size: 1.8rem;
+              line-height: 2.2rem;
+            }
+            > div > svg {
+              max-width: 1.8rem;
+              max-height: 1.938rem;
+            }
+          }
+          &--tokenDiv {
+            p {
+              width: 16.6rem;
+            }
+          }
+        }
+      }
+      &__profileDiv {
+        border-radius: 2rem 0 0 2rem;
+        padding-left: 3.8rem;
+      }
+    }
   }
 }

@@ -18,7 +18,7 @@ import { cardPackFakeData } from "./cardPackFakeData";
 
 const CardPack = () => {
   const { progress } = useAppSelector(
-    ({ createData }) => ({ progress: createData.progress }),
+    ({ createData }) => ({ progress: createData.data.progress }),
     shallowEqual
   );
   const lootRef = useRef<any>(null);
@@ -43,6 +43,7 @@ const CardPack = () => {
   return (
     <>
       <div className="create--scroll" ref={lootRef}></div>
+
       <div className={progress !== 0 ? "create--blur" : "create"}>
         <div className="create__container--size">
           <div className="create__container">
@@ -52,33 +53,28 @@ const CardPack = () => {
               <CreateFormSectionLabel
                 name="name"
                 type="text"
-                // text="Name*"
                 placeholder="Item Name"
               />
               <CreateFormSectionLabel
                 name="openPrice"
                 type="text"
-                // text="Open Price"
                 placeholder="Enter location"
               />
               <div className="create__container__formSection--minMaxDiv">
                 <CreateFormSectionLabel
                   name="minimum"
                   type="text"
-                  // text="Minimum Loot Awarded"
                   placeholder="1"
                 />
                 <CreateFormSectionLabel
                   name="maximum"
                   type="text"
-                  // text="Maximum Loot Awarded"
                   placeholder="3"
                 />
               </div>
               <CreateFormSectionLabel
                 name="maximumOpens"
                 type="text"
-                // text="Maximum Opens"
                 placeholder="100"
               />
               <CreateFormSectionDescription
@@ -90,12 +86,7 @@ const CardPack = () => {
             </div>
             <div ref={createBtnRef}></div>{" "}
             {/* empty div for closing modal and continiue from current position */}
-            <CreateLootSection
-              // title="Loot"
-              // description="The is the pool of items that the lootbox will award to openers"
-              data={cardPackFakeData}
-              // createBtnText="+ Create loot"
-            />
+            <CreateLootSection data={cardPackFakeData} />
             <CreateBlockchainSection />
             <CreateBtn text="Create" onClick={handleClick} />
           </div>

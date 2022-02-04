@@ -1,4 +1,4 @@
-interface IFiltersProps {
+export interface IFiltersProps {
   setTypeFilterState: React.Dispatch<React.SetStateAction<boolean>>;
   setCollectionFilterState: React.Dispatch<React.SetStateAction<boolean>>;
   setSortFilterState: React.Dispatch<React.SetStateAction<boolean>>;

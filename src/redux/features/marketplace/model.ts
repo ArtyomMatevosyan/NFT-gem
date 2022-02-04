@@ -1,8 +1,10 @@
 export interface IMarketplaceState {
   loading: boolean;
   error: string;
-  data: MarketplaceDataType[] | null;
+  data: MarketplaceDataType[];
+  filteredData: MarketplaceDataType[];
   filters: SearchFilterTypes;
+  mergedFilters: string[];
 }
 
 export type MarketplaceDataType = {
@@ -13,6 +15,8 @@ export type MarketplaceDataType = {
   creator: string;
   id: number;
   isLiked: boolean;
+  type: string;
+  collection: string;
 };
 
 type SearchFilterTypes = {
@@ -30,7 +34,6 @@ export type CollectionAndTypeFilterTypes = {
 export type PriceFilterTypes = {
   from: number | null;
   to: number | null;
-  // className: string | null;
 };
 export type SortByPriceTypes = {
   id: string;

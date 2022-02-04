@@ -14,24 +14,11 @@ import CreateTitle from "../create/CreateTitle";
 import CreateLoot from "../CreateLoot/CreateLoot";
 import Done from "../CreateLoot/Done";
 
-const AttributedNFT = () => {
-  const attributedNFTfakeData = [
-    {
-      text: "Strength",
-      id: 1,
-    },
-    {
-      text: "Stamina",
-      id: 2,
-    },
-    {
-      text: "Charisma",
-      id: 3,
-    },
-  ];
+import { attributedNFTfakeData } from "./attributedNftFakeData";
 
+const AttributedNFT = () => {
   const { progress } = useAppSelector(
-    ({ createData }) => ({ progress: createData.progress }),
+    ({ createData }) => ({ progress: createData.data.progress }),
     shallowEqual
   );
   const lootRef = useRef<any>(null);
@@ -65,19 +52,16 @@ const AttributedNFT = () => {
               <CreateFormSectionLabel
                 name="name"
                 type="text"
-                // text="Name*"
                 placeholder="Item Name"
               />
               <CreateFormSectionLabel
                 name="salePrice"
                 type="text"
-                // text="Sale Price"
                 placeholder="Enter location"
               />
               <CreateFormSectionLabel
                 name="maximumMint"
                 type="text"
-                // text="Maximum Mint"
                 placeholder="1"
               />
               <CreateFormSectionDescription
@@ -89,12 +73,7 @@ const AttributedNFT = () => {
             </div>
             <div ref={createBtnRef}></div>{" "}
             {/* empty div for closing modal and continiue from current position */}
-            <CreateLootSection
-              // title="Attributes"
-              // description="Define the attributes that your NFT will possess. All attribute values are determined on NFT minting."
-              data={attributedNFTfakeData}
-              // createBtnText="+ Create loot"
-            />
+            <CreateLootSection data={attributedNFTfakeData} />
             <CreateBlockchainSection />
             <CreateBtn text="Create" onClick={handleClick} />
           </div>

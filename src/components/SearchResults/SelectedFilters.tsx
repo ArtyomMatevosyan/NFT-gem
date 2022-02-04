@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import { shallowEqual } from "react-redux";
 
 import { ReactComponent as CollectionFilterIcon } from "../../assets/searchResult/collectionFilter.svg";
@@ -9,6 +11,13 @@ import SelectedFilter from "./SelectedFilter";
 import SelectedPriceFilter from "./SelectedPriceFilter";
 
 const SelectedFilters = () => {
+  const [displaySize, setDisplaySize] = useState(window.innerWidth);
+  window.addEventListener(
+    "resize",
+    () => setDisplaySize(window.innerWidth),
+    false
+  );
+
   const { typeFilterState, collectionFilterState, priceFilterState } =
     useAppSelector(
       ({ marketplaceData }) => ({
@@ -21,32 +30,56 @@ const SelectedFilters = () => {
 
   return (
     <div className="searchResult__searchSection__selectedFilters">
-      {typeFilterState.map((item) => (
+      {displaySize <= 672 && typeFilterState.length >= 2 ? (
         <SelectedFilter
-          className={item.className}
-          textContent={item.textContent}
-          key={item.id}
-          id={item.id}
+          className={typeFilterState[0].className}
+          textContent={`${typeFilterState.length} types`}
+          id={""}
+          displaySize={displaySize}
         >
           <TypeFilterIcon />
         </SelectedFilter>
-      ))}
-      {collectionFilterState.map((item) => (
+      ) : (
+        typeFilterState.map(({ className, textContent, id }) => (
+          <SelectedFilter
+            className={className}
+            textContent={textContent}
+            key={id}
+            id={id}
+            displaySize={displaySize}
+          >
+            <TypeFilterIcon />
+          </SelectedFilter>
+        ))
+      )}
+      {displaySize <= 672 && collectionFilterState.length >= 2 ? (
         <SelectedFilter
-          className={item.className}
-          textContent={item.textContent}
-          key={item.id}
-          id={item.id}
+          className={collectionFilterState[0].className}
+          textContent={`${collectionFilterState.length} colle...`}
+          id={""}
+          displaySize={displaySize}
         >
           <CollectionFilterIcon />
         </SelectedFilter>
-      ))}
+      ) : (
+        collectionFilterState.map(({ className, textContent, id }) => (
+          <SelectedFilter
+            className={className}
+            textContent={textContent}
+            key={id}
+            id={id}
+            displaySize={displaySize}
+          >
+            <CollectionFilterIcon />
+          </SelectedFilter>
+        ))
+      )}
       {priceFilterState.from !== null ? (
         <SelectedPriceFilter
           from={priceFilterState.from}
           to={priceFilterState.to}
         >
-          <PriceFilterIcon />
+          <PriceFilterIcon className="searchResult__searchSection__selectedFilters--priceFilterIcon" />
         </SelectedPriceFilter>
       ) : null}
     </div>

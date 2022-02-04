@@ -1,78 +1,115 @@
+import BrowseCollection from "../../assets/aboutCategory/takeAction/browseCollection.svg";
+import CreateOwnGempoolIcon from "../../assets/aboutCategory/takeAction/createOwnGempool.svg";
+import FindGempoolIcon from "../../assets/aboutCategory/takeAction/findGempool.svg";
+import UseOurApiIcon from "../../assets/aboutCategory/takeAction/useOurApi.svg";
+
 export const actionsFakeDataGempools = [
   {
-    imgUrl: "",
-    title: "Find Gempool",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Egestas ligula risus sed lacus nec, pellentesque at maecenas. Nisi, odio risus nunc cras.",
+    imgUrl: FindGempoolIcon,
+    title: "Step 1",
+    description: "Upload your assets",
   },
   {
-    imgUrl: "",
-    title: "Create your own Gempool",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Egestas ligula risus sed lacus nec, pellentesque at maecenas. Nisi, odio risus nunc cras.",
+    imgUrl: CreateOwnGempoolIcon,
+    title: "Step 2",
+    description: "Upload your branding",
   },
   {
-    imgUrl: "",
-    title: "Use ourAPI",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Egestas ligula risus sed lacus nec, pellentesque at maecenas. Nisi, odio risus nunc cras.",
+    imgUrl: UseOurApiIcon,
+    title: "Step 3",
+    description: "Set your parameters",
   },
   {
-    imgUrl: "",
-    title: "Browse collection",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Egestas ligula risus sed lacus nec, pellentesque at maecenas. Nisi, odio risus nunc cras.",
+    imgUrl: BrowseCollection,
+    title: "Step 4",
+    description: "Confirm and start making money",
   },
 ];
 export const actionsFakeDataLootbox = [
   {
-    imgUrl: "",
-    title: "Find Lootbox",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Egestas ligula risus sed lacus nec, pellentesque at maecenas. Nisi, odio risus nunc cras.",
+    imgUrl: FindGempoolIcon,
+    title: "Step 1",
+    description: "Find Lootbox",
   },
   {
-    imgUrl: "",
-    title: "Create your own Lootbox",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Egestas ligula risus sed lacus nec, pellentesque at maecenas. Nisi, odio risus nunc cras.",
+    imgUrl: CreateOwnGempoolIcon,
+    title: "Step 2",
+    description: "Create your own Lootbox",
   },
   {
-    imgUrl: "",
-    title: "Use ourAPI",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Egestas ligula risus sed lacus nec, pellentesque at maecenas. Nisi, odio risus nunc cras.",
+    imgUrl: UseOurApiIcon,
+    title: "Step 3",
+    description: "Use ourAPI",
   },
   {
-    imgUrl: "",
-    title: "Browse collection",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Egestas ligula risus sed lacus nec, pellentesque at maecenas. Nisi, odio risus nunc cras.",
+    imgUrl: BrowseCollection,
+    title: "Step 4",
+    description: "Browse collection",
   },
 ];
 export const actionsFakeDataRaffles = [
   {
-    imgUrl: "",
-    title: "Find Raffles",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Egestas ligula risus sed lacus nec, pellentesque at maecenas. Nisi, odio risus nunc cras.",
+    imgUrl: FindGempoolIcon,
+    title: "Step 1",
+    description: "Find Raffles",
   },
   {
-    imgUrl: "",
-    title: "Create your own Raffles",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Egestas ligula risus sed lacus nec, pellentesque at maecenas. Nisi, odio risus nunc cras.",
+    imgUrl: CreateOwnGempoolIcon,
+    title: "Step 2",
+    description: "Create your own Raffles",
   },
   {
-    imgUrl: "",
-    title: "Use ourAPI",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Egestas ligula risus sed lacus nec, pellentesque at maecenas. Nisi, odio risus nunc cras.",
+    imgUrl: UseOurApiIcon,
+    title: "Step 3",
+    description: "Use ourAPI",
   },
   {
-    imgUrl: "",
-    title: "Browse collection",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Egestas ligula risus sed lacus nec, pellentesque at maecenas. Nisi, odio risus nunc cras.",
+    imgUrl: BrowseCollection,
+    title: "Step 4",
+    description: "Browse collection",
+  },
+];
+export const actionsFakeDataCardPack = [
+  {
+    imgUrl: FindGempoolIcon,
+    title: "Step 1",
+    description: "Find Card Pack",
+  },
+  {
+    imgUrl: CreateOwnGempoolIcon,
+    title: "Step 2",
+    description: "Find Card Pack",
+  },
+  {
+    imgUrl: UseOurApiIcon,
+    title: "Step 3",
+    description: "Use ourAPI",
+  },
+  {
+    imgUrl: BrowseCollection,
+    title: "Step 4",
+    description: "Browse collection",
+  },
+];
+export const actionsFakeDataAttributedNFT = [
+  {
+    imgUrl: FindGempoolIcon,
+    title: "Step 1",
+    description: "Find Attributed NFT",
+  },
+  {
+    imgUrl: CreateOwnGempoolIcon,
+    title: "Step 2",
+    description: "Create your own Attributed NFT",
+  },
+  {
+    imgUrl: UseOurApiIcon,
+    title: "Step 3",
+    description: "Use ourAPI",
+  },
+  {
+    imgUrl: BrowseCollection,
+    title: "Step 4",
+    description: "Browse collection",
   },
 ];

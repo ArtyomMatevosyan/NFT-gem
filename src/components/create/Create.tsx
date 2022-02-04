@@ -10,7 +10,6 @@ const Create = () => {
   const history = useHistory();
   const { pathname } = useLocation();
 
-
   return (
     <div className="createPage">
       <div className="createPage__container">

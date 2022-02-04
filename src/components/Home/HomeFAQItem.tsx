@@ -23,13 +23,12 @@ const HomeFAQItem: FC<HomeFAQItemProps> = ({ question, className, answer }) => {
             <FAQquestionIcon />
             <p>{question}</p>
           </span>
-          {className === "faq__faqSection" ? (
-            <div
-              className={`${className}__container__data--questionDiv--iconDiv`}
-            >
-              {openAnswer ? <EmptyCyrcleIcon /> : <CyrcleIcon />}
-            </div>
-          ) : null}
+
+          <div
+            className={`${className}__container__data--questionDiv--iconDiv`}
+          >
+            {openAnswer ? <EmptyCyrcleIcon /> : <CyrcleIcon />}
+          </div>
         </div>
 
         {answer ? (

@@ -62,6 +62,7 @@ const FilterByPrice: FC<IPriceFilterProps> = ({
     >
       <div onClick={handleOpenPriceFilter}>
         <PriceFilterIcon />
+        <p>Price</p>
       </div>
       {priceFilterState ? (
         <div>
@@ -76,12 +77,14 @@ const FilterByPrice: FC<IPriceFilterProps> = ({
               placeholder="from"
               onChange={(e) => setPriceFromState(Number(e.target.value))}
               value={priceFromState || undefined}
+              defaultValue={""}
             />
             <span>-</span>
             <input
               type="number"
               placeholder="to"
               value={priceToState || undefined}
+              defaultValue={""}
               onChange={(e) => setPriceToState(Number(e.target.value))}
               onKeyDown={handlePressEnter}
             />

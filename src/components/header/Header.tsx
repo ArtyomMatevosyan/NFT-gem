@@ -1,19 +1,31 @@
 import { useEffect, useState } from "react";
 
-import { shallowEqual, useDispatch } from "react-redux";
+import { useMoralis } from "react-moralis";
+import { shallowEqual } from "react-redux";
 import { useHistory } from "react-router";
-import { NavLink } from "react-router-dom";
 
-import { ReactComponent as WalletIcon } from "../../assets/header/walletIcon.svg";
-import {
-  connectWallet,
-  createPopup,
-  menuPopup,
-} from "../../redux/features/create/createSlice";
 import { useAppSelector } from "../../redux/hook";
+import { clientConfig } from "../../utils/config";
+
+import HeaderMobileMenu from "./HeaderMobileMenu";
+import HeaderNavigation from "./HeaderNavigation";
+import HeaderNavigationMobile from "./HeaderNavigationMobile";
+import HeaderNavigationWallets from "./HeaderNavigationWallets";
+// import { HeaderPropsTypes } from "./model";
 
 const Header = () => {
+  const [displayWidth, setDisplayWidth] = useState(window.innerWidth);
+  window.addEventListener(
+    "resize",
+    () => setDisplayWidth(window.innerWidth),
+    false
+  );
+
+  const history = useHistory();
+  const { isAuthenticated, isWeb3Enabled } = useMoralis();
+
   const [headerClass, setHeaderClass] = useState<string>("header__container");
+  const [currentId, setCurrentId] = useState<null | string>(null);
 
   useEffect(() => {
     let prevScrollPos = window.pageYOffset;
@@ -28,99 +40,75 @@ const Header = () => {
     };
   }, [headerClass]);
 
-  const history = useHistory();
-
-  const { progress, connectWalletState, menuPopupState, account } =
+  const { progress, connectWalletState, menuPopupState, mobileMenuState } =
     useAppSelector(
-      ({ createData, walletData }) => ({
-        progress: createData.progress,
-        connectWalletState: createData.connectWalletState,
-        createPopupState: createData.createPopupState,
-        menuPopupState: createData.menuPopupState,
-        account: walletData.account,
+      ({ createData }) => ({
+        progress: createData.data.progress,
+        connectWalletState: createData.data.connectWalletState,
+        createPopupState: createData.data.createPopupState,
+        menuPopupState: createData.data.menuPopupState,
+        mobileMenuState: createData.data.mobileMenuState,
       }),
       shallowEqual
     );
 
-  const dispatch = useDispatch();
-
-  const handleOpenConnectWalletModal = () => {
-    dispatch(createPopup(false));
-    dispatch(connectWallet(!connectWalletState));
-  };
-
-  const handleOpenCreatePopup = () => {
-    dispatch(connectWallet(false));
-    dispatch(menuPopup(false));
-    history.push("/create");
-  };
-
-  const handleOpenMenuPopup = () => {
-    dispatch(createPopup(false));
-    dispatch(menuPopup(!menuPopupState));
-  };
-
-  const handleCloseAllPopups = () => {
-    dispatch(connectWallet(false));
-    dispatch(menuPopup(false));
-    dispatch(createPopup(false));
-  };
+  const config = process.env.CLIENT
+    ? clientConfig[process.env.CLIENT]
+    : clientConfig["NextGem"];
 
   return (
-    <div
-      className={
-        progress !== 0
-          ? "header__container--blur"
-          : `${
-              headerClass === "header__container"
-                ? "header__container"
-                : "header__container__scrolled"
-            }`
-      }
-    >
-      <div className="header__container__wrapper">
-        <div className="header__logo">NextGem</div>
-        <div className="header__navigation">
+    <>
+      <div
+        className={
+          progress !== 0 || menuPopupState || connectWalletState
+            ? "header__container--blur"
+            : `${
+                headerClass === "header__container"
+                  ? "header__container"
+                  : "header__container__scrolled"
+              }`
+        }
+      >
+        <div className="header__container__wrapper">
           <div
-            className="header__navigation__links"
-            onClick={handleCloseAllPopups}
+            className="header__logo"
+            onClick={() => {
+              setCurrentId(null);
+              history.push("/");
+            }}
           >
-            <div>
-              <NavLink to="/about">About</NavLink>
-            </div>
-            <div>
-              <NavLink to="/marketplace">Marketplace</NavLink>
-            </div>
-            <div>
-              <NavLink to="/faq">FAQ</NavLink>
-            </div>
+            {config.brandName}
           </div>
-          <div className="header__navigation__btn__container">
-            <div
-              className="header__navigation__btn__container--div--white"
-              onClick={handleOpenCreatePopup}
-            >
-              <button>Create</button>
-            </div>
-            {account?.length === 42 || localStorage.getItem("walletconnect") ? (
-              <div
-                className="header__navigation__btn__container--div--black"
-                onClick={handleOpenMenuPopup}
-              >
-                <WalletIcon />
-              </div>
-            ) : (
-              <div
-                className="header__navigation__btn__container--div--black"
-                onClick={handleOpenConnectWalletModal}
-              >
-                <button>Connect Wallet</button>
-              </div>
-            )}
+          <div className="header__navigation">
+            {displayWidth <= 850 ? (
+              <HeaderNavigationMobile
+                isAuthenticated={isAuthenticated}
+                isWeb3Enabled={isWeb3Enabled}
+              />
+            ) : null}
+            <HeaderNavigation
+              currentId={currentId}
+              setCurrentId={setCurrentId}
+              clientConfig={config}
+            />
+            <HeaderNavigationWallets
+              isAuthenticated={isAuthenticated}
+              isWeb3Enabled={isWeb3Enabled}
+              currentId={currentId}
+              setCurrentId={setCurrentId}
+            />
           </div>
         </div>
       </div>
-    </div>
+      {mobileMenuState ? (
+        <HeaderMobileMenu
+          currentId={currentId}
+          setCurrentId={setCurrentId}
+          clientConfig={config}
+          // isOpenHeaderMobileMenu={isOpenHeaderMobileMenu}
+        />
+      ) : null}
+    </>
   );
 };
 

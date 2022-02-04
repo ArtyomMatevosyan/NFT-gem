@@ -16,9 +16,7 @@
       color: #111111;
     }
     > p {
-      font-family: "Roboto";
-      font-size: 1.4rem;
-      line-height: 2.2rem;
+      @include robotoFontSmall;
       color: #808080;
       margin: 0;
       padding-top: 2.4rem;
@@ -26,14 +24,8 @@
     }
     > button {
       max-width: 18.3rem;
-      font-size: 1.4rem;
-      line-height: 1.7rem;
-      background-color: #000000;
-      border-radius: 0.4rem;
-      color: #fff;
+      @include buttonStyle;
       padding: 1.6rem 2.4rem 1.7rem 2.4rem;
-      border: none;
-      outline: none;
       margin-bottom: 6rem;
     }
     > div {
@@ -52,9 +44,7 @@
       &__imgDiv {
         background-color: #b9bec7;
         height: 25.287rem;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        @include center;
         flex-direction: column;
         &--textDiv {
           padding-top: 3.18rem;
@@ -78,10 +68,8 @@
         border-radius: 0 0 0.4rem 0.4rem;
         &--iconDiv {
           width: 20%;
-          display: flex;
-          justify-content: center;
-          align-items: center;
           height: 7.2rem;
+          @include center;
           svg {
             background-color: #b9bec7;
             padding: 1.3rem;
@@ -89,10 +77,10 @@
           }
         }
         &--author {
+          width: 30%;
           display: flex;
           justify-content: center;
           flex-direction: column;
-          width: 30%;
           &--collectionName {
             margin: 0;
             font-style: normal;
@@ -122,11 +110,10 @@
       > div {
         justify-content: center;
         row-gap: 1.5rem;
-        
-    }
-    &__card__container{
+      }
+      &__card__container {
         width: 80%;
-    }
+      }
     }
   }
 }

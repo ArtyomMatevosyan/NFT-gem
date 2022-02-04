@@ -4,6 +4,8 @@
   flex-direction: column;
   width: 100%;
   align-items: center;
+  overflow: hidden;
+  background-color: #0f0e13;
   &__buffer {
     height: 8.5rem;
     &--blur {
@@ -42,11 +44,9 @@
     width: 100%;
     max-width: 144rem;
     margin: 0 auto;
-    // position: relative;
     position: fixed;
     z-index: 999;
     > div {
-      // margin-top: 6%;
       margin-top: 8.681%;
       position: absolute;
       right: 6%;
@@ -55,7 +55,11 @@
 
   &__children {
     width: 100%;
+    background-color: #0f0e13;
+
     &--blur {
+      background-color: #0f0e13;
+
       filter: blur(16px);
       width: 103%;
       margin-top: -3.2rem;
@@ -88,6 +92,17 @@
     &__menuPopup {
       > div {
         margin-top: 12%;
+      }
+    }
+  }
+}
+
+@media (max-width: 320px) {
+  .layout {
+    &__menuPopup {
+      > div {
+        margin-top: 5%;
+        right: 0%;
       }
     }
   }

@@ -1,7 +1,12 @@
 import { ReactComponent as Prev } from "../../assets/home/left-arrow.svg";
 import { ReactComponent as Next } from "../../assets/home/right-arrow.svg";
 
-export const SlickArrowLeft = ({ currentSlide, slideCount, ...props }: any) => (
+export const SlickArrowLeft = ({
+  children,
+  currentSlide,
+  slideCount,
+  ...props
+}: any) => (
   <button
     {...props}
     className={
@@ -11,11 +16,12 @@ export const SlickArrowLeft = ({ currentSlide, slideCount, ...props }: any) => (
     aria-disabled={currentSlide === 0 ? true : false}
     type="button"
   >
-    <Prev />
+    {children ? children : <Prev />}
   </button>
 );
 
 export const SlickArrowRight = ({
+  children,
   currentSlide,
   slideCount,
   ...props
@@ -30,6 +36,6 @@ export const SlickArrowRight = ({
     aria-disabled={currentSlide === slideCount - 1 ? true : false}
     type="button"
   >
-    <Next />
+    {children ? children : <Next />}
   </button>
 );

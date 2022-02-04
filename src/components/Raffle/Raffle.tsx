@@ -18,7 +18,7 @@ import { raffleFakeData } from "./raffleFakeData";
 
 const Raffle = () => {
   const { progress } = useAppSelector(
-    ({ createData }) => ({ progress: createData.progress }),
+    ({ createData }) => ({ progress: createData.data.progress }),
     shallowEqual
   );
   const lootRef = useRef<any>(null);
@@ -52,33 +52,28 @@ const Raffle = () => {
               <CreateFormSectionLabel
                 name="name"
                 type="text"
-                // text="Name*"
                 placeholder="Item Name"
               />
               <CreateFormSectionLabel
                 name="ticketPrice"
                 type="text"
-                // text="Ticket Price"
                 placeholder="Enter Price"
               />
               <div className="create__container__formSection--minMaxDiv">
                 <CreateFormSectionLabel
                   name="raffleStartDate"
                   type="text"
-                  // text="Raffle Start Date"
                   placeholder="1"
                 />
                 <CreateFormSectionLabel
                   name="raffleStartDate"
                   type="text"
-                  // text="Raffle Finish Date"
                   placeholder="3"
                 />
               </div>
               <CreateFormSectionLabel
                 name="totalAvailableRaffleTickets"
                 type="text"
-                // text="Total Available Raffle Tickets "
                 placeholder="100"
               />
               <CreateFormSectionDescription
@@ -90,12 +85,7 @@ const Raffle = () => {
             </div>
             <div ref={createBtnRef}></div>
             {/* empty div for closing modal and continiue from current position */}
-            <CreateLootSection
-              // title="Raffle Prizes"
-              // description="The is the pool of items that the lootbox will award to openers"
-              data={raffleFakeData}
-              // createBtnText="+ Create collection"
-            />
+            <CreateLootSection data={raffleFakeData} />
             <CreateBlockchainSection />
             <CreateBtn text="Create" onClick={handleClick} />
           </div>

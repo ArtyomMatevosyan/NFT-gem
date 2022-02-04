@@ -1,7 +1,7 @@
 .footer {
   &__container {
     width: 100%;
-    background-color: #0f0e13;
+    background-color: #191824;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -24,13 +24,11 @@
     display: flex;
     flex-direction: column;
     &--logo {
-      background-color: #b9bec7;
-      border-radius: 0.5rem;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 16.4rem;
-      height: 3.8rem;
+      font-family: "Squada One";
+      font-size: 3.4rem;
+      line-height: 2rem;
+
+      color: #ffffff;
     }
 
     &--desc {
@@ -42,40 +40,42 @@
         font-family: "Roboto";
         font-style: normal;
         font-weight: normal;
-        font-size: 1.2rem;
+        font-size: 1.4rem;
         line-height: 2rem;
         color: #69696b;
       }
     }
   }
+  // #69696b
   &__services {
     width: 30%;
     display: flex;
     justify-content: space-between;
     margin-top: 0.9rem;
-    &--create,
-    &--myAccount,
-    &--about {
+    font-size: 1.4rem;
+    > div {
       display: flex;
       flex-direction: column;
       grid-gap: 1.5rem;
-      &--title {
-        font-style: normal;
-        font-weight: 600;
-        font-size: 1.4rem;
-        line-height: 2rem;
-        color: #c4c4c4;
-      }
-      &--services {
-        padding-top: 1.232rem;
-        a {
-          padding-bottom: 1.543rem;
-          display: flex;
-          align-items: center;
-          text-align: left;
-          text-decoration: none;
-          color: #69696b;
-          cursor: pointer;
+      div {
+        &:first-child {
+          font-style: normal;
+          font-weight: 600;
+          font-size: 1.4rem;
+          line-height: 2rem;
+          color: #c4c4c4;
+        }
+        &:last-child {
+          padding-top: 1.232rem;
+          a {
+            padding-bottom: 1.543rem;
+            display: flex;
+            align-items: center;
+            text-align: left;
+            text-decoration: none;
+            color: #69696b;
+            cursor: pointer;
+          }
         }
       }
     }
@@ -83,10 +83,12 @@
   &__copyright {
     width: 92%;
     max-width: 128.5rem;
-    padding-bottom: 1.987rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding-bottom: 1.987rem;
+    font-size: 1.2rem;
+    line-height: 20px;
     border-top: 1px solid #333236;
     &--left {
       color: #69696b;
@@ -117,6 +119,95 @@
       &--desc {
         p {
           min-width: 24rem;
+        }
+      }
+    }
+  }
+}
+@media (max-width: 893px) {
+  .footer {
+    &__services {
+      width: 80%;
+    }
+    &__description {
+      &--desc {
+        p {
+          min-width: 16rem;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 621px) {
+  .footer {
+    &__container {
+      &__wrapper {
+        flex-direction: column;
+        padding: unset;
+        padding-top: 5.1rem;
+      }
+    }
+    &__description {
+      width: 100%;
+      align-items: center;
+      &--desc {
+        width: 100%;
+        p {
+          max-width: 22.5rem;
+          min-width: unset;
+
+          font-size: 1.2rem;
+          line-height: 2rem;
+
+          text-align: center;
+        }
+      }
+      &--logo {
+        font-family: "Squada One";
+        font-size: 3.4rem;
+        line-height: 2rem;
+      }
+    }
+    &__services {
+      width: 100%;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      > div {
+        grid-gap: unset;
+        div {
+          &:first-child {
+            font-size: 1.2rem;
+            line-height: 2rem;
+          }
+          &:last-child {
+            a {
+              justify-content: center;
+              font-size: 1.2rem;
+              line-height: 2rem;
+              padding-bottom: 1rem;
+            }
+          }
+        }
+      }
+    }
+    &__copyright {
+      flex-direction: column;
+      max-width: 24.5rem;
+      div {
+        &:first-child {
+          p {
+            font-size: 1.2rem;
+            line-height: 2rem;
+
+            width: 32rem;
+            text-align: center;
+          }
+        }
+        &:last-child {
+          display: flex;
+          grid-gap: 1.8rem;
         }
       }
     }

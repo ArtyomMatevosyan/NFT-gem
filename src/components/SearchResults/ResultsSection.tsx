@@ -11,9 +11,10 @@ import NFTCollectionCard from "./NFTCollectionCard";
 import { searchResultFakeData } from "./searchResultFakeData";
 
 const ResultsSection: FC<ResultsSectionProps> = ({ pageNum }) => {
-  const { marketplaceData } = useAppSelector(
+  const { marketplaceData, filteredData } = useAppSelector(
     ({ marketplaceData }) => ({
       marketplaceData: marketplaceData.data,
+      filteredData: marketplaceData.filteredData,
     }),
     shallowEqual
   );
@@ -27,19 +28,33 @@ const ResultsSection: FC<ResultsSectionProps> = ({ pageNum }) => {
 
   return (
     <div className="searchResult__openCollection__results">
-      {marketplaceData?.map((item, i) =>
-        i <= pageNum * 15 - 1 && i >= (pageNum - 1) * 15 ? (
-          <NFTCollectionCard
-            onDblClick={() => HandleDoubleClick(item, i)}
-            creator={item.creator}
-            owner={item.owner}
-            likesCount={i + 1}
-            price={item.price}
-            imageUrl={item.imageUrl}
-            key={uuid_v4()}
-          />
-        ) : null
-      )}
+      {filteredData.length === 0
+        ? marketplaceData?.map(
+            (item, i) => (
+              <NFTCollectionCard
+                onDblClick={() => HandleDoubleClick(item, i)}
+                creator={item.creator}
+                owner={item.owner}
+                likesCount={item.id}
+                price={item.price}
+                imageUrl={item.imageUrl}
+                key={uuid_v4()}
+              />
+            )
+          )
+        : filteredData.map(
+            (item, i) => (
+              <NFTCollectionCard
+                onDblClick={() => HandleDoubleClick(item, i)}
+                creator={item.creator}
+                owner={item.owner}
+                likesCount={item.id}
+                price={item.price}
+                imageUrl={item.imageUrl}
+                key={uuid_v4()}
+              />
+            )
+          )}
     </div>
   );
 };

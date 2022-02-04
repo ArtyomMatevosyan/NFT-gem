@@ -1,4 +1,4 @@
-import { ReactComponent as ImageIcon } from "../../assets/create/imgIcon.svg";
+import { ReactComponent as DeFiPng } from "../../assets/details/defiPng.svg";
 
 import GempoolDetailsInfoComp from "./GempoolDeatilsInfoComp";
 import {
@@ -16,8 +16,7 @@ const GempoolDetails = () => {
         <div className="gempoolDetails__content__upperPart">
           <div className="gempoolDetails__content__upperPart__leftSection">
             <div className="gempoolDetails__content__upperPart__leftSection--imgDiv">
-              <ImageIcon />
-              <p>Photo</p>
+              <DeFiPng />
             </div>
           </div>
           <GempoolDetailsInfoComp

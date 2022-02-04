@@ -1,7 +1,7 @@
+@import "../../utils/mixin.scss";
+
 .aboutItWorks {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  @include center;
   &__content {
     width: 100%;
     height: 650px;
@@ -48,9 +48,7 @@
           height: 15.5rem;
           border-radius: 50%;
           background: #d3d9e1;
-          display: flex;
-          align-items: center;
-          justify-content: center;
+          @include center;
         }
         &--stepQuantity {
           margin-top: 2.9rem;
@@ -64,11 +62,9 @@
           color: #000000;
         }
         &--text {
-          font-family: Roboto;
+          @include robotoFontSmall;
           font-style: normal;
           font-weight: normal;
-          font-size: 1.4rem;
-          line-height: 2.2rem;
           text-align: center;
           color: #000000;
           opacity: 0.5;
@@ -86,33 +82,14 @@
       &--explore {
         width: 16.89rem;
         height: 100%;
-        background: #000000;
-        border-radius: 4px;
-        font-family: Montserrat;
-        font-style: normal;
-        font-weight: 600;
-        font-size: 1.4rem;
-        line-height: 1.7rem;
-        text-align: center;
-        color: #ffffff;
-        border: none;
-        outline: none;
+        @include buttonStyle;
       }
       &--connect {
         width: 16.89rem;
         height: 100%;
         border: 1px solid #000000;
         box-sizing: border-box;
-        border-radius: 4px;
-        font-family: Montserrat;
-        font-style: normal;
-        font-weight: 600;
-        font-size: 1.4rem;
-        line-height: 1.7rem;
-        text-align: center;
-        color: #000000;
-        border: none;
-        outline: none;
+        @include buttonStyle;
       }
     }
   }

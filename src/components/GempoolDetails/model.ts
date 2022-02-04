@@ -43,3 +43,8 @@ export type detailsFakeDataType = {
   fourth: string | number;
   last: string | number;
 };
+
+export type DetailsSliderItemProps = {
+  collectionName: string;
+  author: string;
+};

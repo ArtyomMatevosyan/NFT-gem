@@ -1,7 +1,6 @@
 import { lazy } from "react";
 
 const About = lazy(() => import("./pages/About"));
-// const Create = lazy(() => import("./pages/Create"));
 const FAQ = lazy(() => import("./pages/Faq"));
 const Marketplace = lazy(() => import("./pages/Marketplace"));
 
@@ -15,6 +14,13 @@ const AttributedNFT = lazy(() => import("./pages/AttributedNFTPage"));
 const AboutGempool = lazy(() => import("./pages/AboutGempools"));
 const AboutLootbox = lazy(() => import("./pages/AboutLootbox"));
 const AboutRaffles = lazy(() => import("./pages/AboutRaffles"));
+const AboutCardPack = lazy(() => import("./pages/AboutCardPack"));
+const AboutAttributedNFT = lazy(() => import("./pages/AboutAttributedNFT"));
+
+const GempoolDetails = lazy(() => import("./pages/GempoolDetailsPage"));
+const LootboxDetails = lazy(() => import("./pages/LootboxDetailsPage"));
+const RaffleDetails = lazy(() => import("./pages/RaffleDetailsPage"));
+const CardCheckDetails = lazy(() => import("./pages/CardCheckDetailsPage"));
 
 const Creator = lazy(() => import("./pages/CreatorPage"));
 
@@ -106,11 +112,60 @@ const routes = [
   },
   {
     enabled: true,
+    path: "/aboutCardPack",
+    component: () => <AboutCardPack />,
+    title: "About Card Pack",
+    child: null,
+  },
+  {
+    enabled: true,
+    path: "/aboutAttributedNFT",
+    component: () => <AboutAttributedNFT />,
+    title: "About Attributed NFT",
+    child: null,
+  },
+  {
+    enabled: true,
     path: "/creator",
     component: () => <Creator />,
     title: "Creator home page",
     child: null,
   },
+  {
+    enabled: true,
+    path: "/details/gempool",
+    component: () => <GempoolDetails />,
+    title: "Gempool Details",
+    child: null,
+  },
+  {
+    enabled: true,
+    path: "/details/lootbox",
+    component: () => <LootboxDetails />,
+    title: "Gempool Details",
+    child: null,
+  },
+  {
+    enabled: true,
+    path: "/details/raffle",
+    component: () => <RaffleDetails />,
+    title: "Raffle Details",
+    child: null,
+  },
+  {
+    enabled: true,
+    path: "/details/cardCheck",
+    component: () => <CardCheckDetails />,
+    title: "Card Check Details",
+    child: null,
+  },
+  // {
+  //   enabled: true,
+  //   path: "/*",
+  //   component: () => <NotFound />,
+  //   title: "Page Not found",
+  //   child: null,
+  // },
 ];
 
 export default routes.filter((route) => route.enabled);

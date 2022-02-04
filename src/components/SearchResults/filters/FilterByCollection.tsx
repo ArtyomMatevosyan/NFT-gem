@@ -1,14 +1,15 @@
 import { FC } from "react";
 
-import { useDispatch } from "react-redux";
+import { shallowEqual, useDispatch } from "react-redux";
 
 import { ReactComponent as CollectionFilterIcon } from "../../../assets/searchResult/collectionFilter.svg";
-import collectionNameIcon from "../../../assets/searchResult/collectionNameIcon.png";
 import {
   addTypeCollectionFilter,
-  // setCollectionFilter
+  addTypeCollectionFilterTextContent,
 } from "../../../redux/features/marketplace/marketplaceSlice";
+import { useAppSelector } from "../../../redux/hook";
 
+import { filterByCollectionFakeData } from "./filterByCollectionFakeData";
 import { ICollectionFilterProps } from "./model";
 
 const FilterByCollection: FC<ICollectionFilterProps> = ({
@@ -25,6 +26,14 @@ const FilterByCollection: FC<ICollectionFilterProps> = ({
     setCollectionFilterState(!collectionFilterState);
   };
 
+  const { filterByCollection } = useAppSelector(
+    ({ marketplaceData }) => ({
+      filterByCollection: marketplaceData.filters.collection,
+    }),
+    shallowEqual
+  );
+  const idArr = filterByCollection.map(({ id }) => id);
+
   const dispatch = useDispatch();
 
   const handleAddFilter = (e: any) => {
@@ -35,6 +44,10 @@ const FilterByCollection: FC<ICollectionFilterProps> = ({
         id: e.target.parentElement.id,
       })
     );
+    dispatch(
+      addTypeCollectionFilterTextContent(e.target.textContent as string)
+    );
+    
   };
 
   return (
@@ -50,22 +63,13 @@ const FilterByCollection: FC<ICollectionFilterProps> = ({
       </div>
       {collectionFilterState ? (
         <div onClick={handleAddFilter}>
-          <div id="0">
-            <img src={collectionNameIcon} alt="/" />
-            <p>Name of collection</p>
-          </div>
-          <div id="1">
-            <img src={collectionNameIcon} alt="/" />
-            <p>Long name of col...</p>
-          </div>
-          <div id="2">
-            <img src={collectionNameIcon} alt="/" />
-            <p>Long name of col...</p>
-          </div>
-          <div id="3">
-            <img src={collectionNameIcon} alt="/" />
-            <p>Long name of col...</p>
-          </div>
+          {filterByCollectionFakeData.map(({ id, name, img }) => (
+            <div id={`${id}`} key={id}>
+              <img src={img} alt="/" />
+              <p>{name}</p>
+              {idArr.includes(`${id}`) ? <span></span> : null}
+            </div>
+          ))}
         </div>
       ) : null}
     </div>

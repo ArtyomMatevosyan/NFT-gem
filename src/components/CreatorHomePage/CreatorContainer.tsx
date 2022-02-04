@@ -32,7 +32,6 @@ const CreatorContainer = () => {
               <input type="text" placeholder="Enter your search terms here" />
             </div>
             <CreatorSortByPrice />
-        
           </div>
           <div className="creatorContainer__content__sliderSection">
             <CreatorSider />

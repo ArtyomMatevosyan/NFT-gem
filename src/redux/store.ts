@@ -1,8 +1,8 @@
 import {
   configureStore,
-  getDefaultMiddleware,
   ThunkAction,
   Action,
+  getDefaultMiddleware,
 } from "@reduxjs/toolkit";
 import logger from "redux-logger";
 

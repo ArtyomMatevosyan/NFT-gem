@@ -2,18 +2,17 @@ import Slider from "react-slick";
 import { v4 as uuid_v4 } from "uuid";
 
 import { homeSlickData } from "../Home/HomeSlickSliderFakeData";
-import { SlickArrowLeft, SlickArrowRight } from "../Home/SliderArrowFunctions";
-import CollectionItemCard from "../reusable components/CollectionItemCard";
+
+import DetailsSliderItem from "./DetailsSliderItem";
 
 const DetailsSlider = () => {
   const settings = {
-    dots: false,
+    dots: true,
     infinite: true,
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 1,
-    nextArrow: <SlickArrowRight />,
-    prevArrow: <SlickArrowLeft />,
+    arrows: false,
     responsive: [
       {
         breakpoint: 1182,
@@ -29,12 +28,10 @@ const DetailsSlider = () => {
       <div className="detailsSlider__container">
         <Slider {...settings}>
           {homeSlickData.map((item) => (
-            <CollectionItemCard
-              className="detailsSlider"
+            <DetailsSliderItem
               collectionName={item.collectionName}
               author={`by ${item.author}`}
               key={uuid_v4()}
-              photoCover="Collection cover photo"
             />
           ))}
         </Slider>

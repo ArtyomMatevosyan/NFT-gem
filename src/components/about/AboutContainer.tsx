@@ -1,14 +1,15 @@
+import HowDoesItWorks from "../ReusableComponents/HowDoesItWorks/HowDoesItWorks";
+
 import AboutBuyAndSellNFT from "./AboutBuyAndSellNFT";
-import AboutContainerWhoIsIt from "./AboutContainerWhoIsIt";
-import AboutItWorks from "./AboutItWorks";
 import AboutUs from "./AboutUs";
+import AboutWhoIsIt from "./AboutWhoIsIt";
 
 const AboutContainer = () => {
   return (
     <div className="about">
       <AboutUs />
-      <AboutItWorks />
-      <AboutContainerWhoIsIt />
+      <HowDoesItWorks />
+      <AboutWhoIsIt />
       <AboutBuyAndSellNFT />
     </div>
   );

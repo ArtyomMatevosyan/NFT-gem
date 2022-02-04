@@ -26,15 +26,12 @@
     cursor: pointer;
   }
   &__container {
-    display: flex;
+    @include center;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+
     &--heading {
-      display: flex;
-      align-items: center;
+      @include center;
       flex-direction: column;
-      justify-content: center;
       padding-top: 3.9rem;
       &--title {
         font-size: 2.4rem;
@@ -43,9 +40,7 @@
         margin-bottom: 2rem;
       }
       &--description {
-        font-family: "Roboto";
-        font-size: 1.4rem;
-        line-height: 2.2rem;
+        @include robotoFontSmall;
         opacity: 0.5;
         width: 70%;
         text-align: center;

@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import Slider from "react-slick";
 import { v4 as uuid_v4 } from "uuid";
 
@@ -5,6 +7,14 @@ import CreatorSliderCard from "./CreatorSliderCard";
 import { creatorSliderFakeData } from "./CreatorSliderFakeData";
 
 const CreatorSider = () => {
+  const [displayWidth, setDisplayWidth] = useState(window.innerWidth);
+
+  window.addEventListener(
+    "resize",
+    () => setDisplayWidth(window.innerWidth),
+    false
+  );
+
   const settings = {
     dots: true,
     infinite: true,
@@ -14,7 +24,22 @@ const CreatorSider = () => {
     arrows: false,
     responsive: [
       {
-        breakpoint: 1182,
+        breakpoint: 1250,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          focusOnSelect: true,
+        },
+      },
+      {
+        breakpoint: 930,
+        settings: {
+          slidesToShow: 2.25,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 700,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 1,
@@ -26,11 +51,19 @@ const CreatorSider = () => {
   return (
     <div className="creatorSlider">
       <div className="creatorSlider__container">
-        <Slider {...settings}>
-          {creatorSliderFakeData.map(() => (
-            <CreatorSliderCard key={uuid_v4()} />
-          ))}
-        </Slider>
+        {displayWidth <= 620 ? (
+          <div className="creatorSlider__container--mobile">
+            {creatorSliderFakeData.map(() => (
+              <CreatorSliderCard key={uuid_v4()} />
+            ))}
+          </div>
+        ) : (
+          <Slider {...settings}>
+            {creatorSliderFakeData.map(() => (
+              <CreatorSliderCard key={uuid_v4()} />
+            ))}
+          </Slider>
+        )}
       </div>
     </div>
   );

@@ -4,12 +4,11 @@ export type CreateTitleProps = {
 
 export type CreateBtnProps = {
   text: string;
-  onClick?: React.MouseEventHandler<HTMLButtonElement>;
+  onClick: React.MouseEventHandler<HTMLButtonElement>;
   ref?: React.LegacyRef<HTMLDivElement>;
 };
 
 export type CreateFormSectionLabelProps = {
-  // text: string;
   type: string;
   placeholder: string;
   name: string;
@@ -28,15 +27,13 @@ export type CreateFormSectionDescriptionProps = {
 };
 
 export type CreateLootSectionProps = {
-  // title: string;
-  // description: string;
   data: CreateLootSectionPropsDataType[];
-  // createBtnText: string;
 };
 
 type CreateLootSectionPropsDataType = {
   text: string;
   id: number;
+  imgSrc?: string;
 };
 export type CreateFormSectionProps = {
   schema: string;

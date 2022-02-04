@@ -1,7 +1,8 @@
+import HowDoesItWorks from "../ReusableComponents/HowDoesItWorks/HowDoesItWorks";
+
 import HomeAnnounce from "./HomeAnnounce";
 import HomeBrowse from "./HomeBrowse";
 import HomeFAQ from "./HomeFAQ";
-import HomeHowItWorks from "./HomeHowItWorks";
 import HomeSlickSlider from "./HomeSlickSlider";
 
 const Home = () => {
@@ -9,7 +10,7 @@ const Home = () => {
     <div className="home__container">
       <HomeAnnounce />
       <HomeBrowse />
-      <HomeHowItWorks />
+      <HowDoesItWorks />
       <HomeSlickSlider />
       <HomeFAQ />
     </div>

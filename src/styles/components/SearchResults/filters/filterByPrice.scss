@@ -1,20 +1,23 @@
 .filterByPrice {
   position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 1rem 3.9rem 1.2rem 1.5rem;
+
   box-sizing: border-box;
   border-radius: 0.5rem;
   cursor: pointer;
-
-  padding: 1.1rem 1.358rem 0.9rem 1.4rem;
   border: 1px solid #b1dff7;
 
   > div {
     &:first-child {
       display: flex;
       gap: 1rem;
+
+      width: 3.8rem;
+      height: 3.8rem;
+      @include center;
+
+      > p {
+        display: none;
+      }
     }
     &:nth-child(2) {
       padding: 1.6rem 1.4rem 1.8rem 2.4rem;
@@ -25,7 +28,7 @@
       box-sizing: border-box;
       box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
       border-radius: 1rem;
-      left: -960%;
+      left: -975%;
       flex-direction: row;
       gap: 4rem;
       position: absolute;
@@ -80,7 +83,10 @@
       :nth-child(2) {
         input {
           width: 3.7rem;
+          // width: auto;
+          // max-width: 7rem;
           height: 1.6rem;
+          // padding-right: 10px;
 
           font-family: "Roboto";
           font-size: 1.6rem;
@@ -98,6 +104,53 @@
       line-height: 1.7rem;
       color: #c4c4c4;
       margin: 0;
+    }
+  }
+}
+
+@media (max-width: 672px) {
+  .filterByPrice {
+    max-width: 16rem;
+    > div {
+      &:first-child {
+        width: 16rem;
+        justify-content: unset;
+        padding-left: 1.5rem;
+        height: 3rem;
+        > p {
+          display: block;
+        }
+      }
+      &:nth-child(2) {
+        width: 34.3rem;
+        height: 4rem;
+
+        align-items: center;
+        flex-direction: row;
+
+        position: absolute;
+        top: 130%;
+        left: 0;
+
+        padding-top: 0;
+        padding-bottom: 0;
+      }
+    }
+  }
+}
+
+@media (max-width: 420px) {
+  .filterByPrice {
+    width: 13rem;
+    > div {
+      &:nth-child(2) {
+        grid-gap: 2rem;
+        width: 25.3rem;
+      }
+      p {
+        font-size: 1.2rem;
+        line-height: 1.5rem;
+      }
     }
   }
 }

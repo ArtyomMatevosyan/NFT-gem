@@ -1,11 +1,17 @@
+//Loader
+
+@import "./Loader/loader.scss";
+
 //Home
 
 @import "./Home/home.scss";
 @import "./Home/homeAnnounce.scss";
 @import "./Home/homeSlickSlider.scss";
+@import "./Home/homeSliderCollectionCard.scss";
 @import "./Home/homeHowItWorks.scss";
 @import "./Home/homeHowItWorksStep.scss";
 @import "./Home/homeBrowse.scss";
+@import "./Home/homeBrowseCategory.scss";
 @import "./Home/homeFAQ.scss";
 
 //Wallet
@@ -13,6 +19,7 @@
 @import "./wallet/connectWallet.scss";
 @import "./wallet/menuPopup.scss";
 @import "./wallet/createPopup.scss";
+@import "./wallet/nativeBalance.scss";
 
 //Create
 @import "./Create/createPage.scss";
@@ -28,6 +35,7 @@
 //Create new lootBox
 
 @import "./CreateLoot/createLoot.scss";
+@import "./CreateLoot/createLootButton.scss";
 @import "./CreateLoot/done.scss";
 
 //Home Page Creator
@@ -80,3 +88,7 @@
 
 @import "./AboutCategory/aboutCategory.scss";
 @import "./AboutCategory/aboutCategoryAction.scss";
+
+//Not Found
+
+@import "./NotFound/notFound.scss";

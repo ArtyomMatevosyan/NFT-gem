@@ -27,7 +27,7 @@ const SelectedPriceFilter: FC<SelectedPriceFilterProps> = ({
     <div className="searchResult__searchSection__selectedFilters--selectedFilter">
       <div>
         {children}
-        <p>{from + "-" + to}</p>
+        <p>{from + " - " + to}</p>
       </div>
       <CloseIcon onClick={handleRemoveFilter} />
     </div>

@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-import { ReactComponent as ImgIcon } from "../../assets/home/imgIcon.svg";
+import { ReactComponent as ShowMoreIcon } from "../../assets/aboutCategory/takeAction/showMoreIcon.svg";
 
 import { AboutCategoryActionProps } from "./model";
 
@@ -11,19 +11,11 @@ const AboutCategoryAction: FC<AboutCategoryActionProps> = ({
 }) => {
   return (
     <div className="aboutCategoryAction">
-      {imgUrl?.length !== 0 ? (
-        <div>
-          <img src={imgUrl} alt={title} />
-        </div>
-      ) : (
-        <div>
-          <ImgIcon />
-        </div>
-      )}
-
+      <img src={imgUrl} alt={title} />
       <span>{title}</span>
       <p>{description}</p>
-      <button>Explore</button>
+      <ShowMoreIcon />
+      {title === "Step 1" ? <button>Create</button> : null}
     </div>
   );
 };

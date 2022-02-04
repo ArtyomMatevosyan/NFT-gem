@@ -1,13 +1,24 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-import { ICreateState } from "./model";
+import {
+  CreateSelectedBlockchainType,
+  CreateSelectedLootType,
+  ICreateState,
+} from "./model";
 
 const initialState: ICreateState = {
   loading: false,
-  progress: 0,
-  createPopupState: false,
-  connectWalletState: false,
-  menuPopupState: false,
+  data: {
+    progress: 0,
+    createPopupState: false,
+    connectWalletState: false,
+    menuPopupState: false,
+    selectedLoots: [],
+    selectedBlockchain: null,
+    createLootState: false,
+    createBlockchainState: false,
+    mobileMenuState: false,
+  },
 };
 
 const makeSlice = createSlice({
@@ -18,16 +29,48 @@ const makeSlice = createSlice({
       state.loading = payload;
     },
     changeProgress: (state, { payload }: PayloadAction<number>) => {
-      state.progress = payload;
+      state.data.progress = payload;
     },
     createPopup: (state, { payload }: PayloadAction<boolean>) => {
-      state.createPopupState = payload;
+      state.data.createPopupState = payload;
     },
     connectWallet: (state, { payload }: PayloadAction<boolean>) => {
-      state.connectWalletState = payload;
+      state.data.connectWalletState = payload;
     },
     menuPopup: (state, { payload }: PayloadAction<boolean>) => {
-      state.menuPopupState = payload;
+      state.data.menuPopupState = payload;
+    },
+    changeMobileMenuState: (state, { payload }: PayloadAction<boolean>) => {
+      state.data.mobileMenuState = payload;
+    },
+    changeCreateLootState: (state, { payload }: PayloadAction<boolean>) => {
+      state.data.createLootState = payload;
+    },
+    changeCreateBlockchainState: (
+      state,
+      { payload }: PayloadAction<boolean>
+    ) => {
+      state.data.createBlockchainState = payload;
+    },
+    selectLoot: (state, { payload }: PayloadAction<CreateSelectedLootType>) => {
+      const idArr = state.data.selectedLoots.map(({ id }) => id);
+      if (!idArr.includes(payload.id)) {
+        state.data.selectedLoots = [...state.data.selectedLoots, payload];
+      } else {
+        const index = idArr.indexOf(payload.id);
+        state.data.selectedLoots.splice(index, 1);
+      }
+    },
+
+    selectBlockchain: (
+      state,
+      { payload }: PayloadAction<CreateSelectedBlockchainType>
+    ) => {
+      if (state.data.selectedBlockchain?.id !== payload.id) {
+        state.data.selectedBlockchain = payload;
+      } else {
+        state.data.selectedBlockchain = null;
+      }
     },
   },
 });
@@ -37,7 +80,12 @@ export const {
   changeProgress,
   connectWallet,
   menuPopup,
+  changeMobileMenuState,
+  changeCreateLootState,
+  changeCreateBlockchainState,
   createPopup,
+  selectLoot,
+  selectBlockchain,
 } = makeSlice.actions;
 
 export default makeSlice.reducer;

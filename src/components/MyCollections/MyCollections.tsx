@@ -1,4 +1,4 @@
-import CollectionItemCard from "../reusable components/CollectionItemCard";
+import CollectionItemCard from "../ReusableComponents/CollectionItemCard";
 
 const MyCollections = () => {
   return (

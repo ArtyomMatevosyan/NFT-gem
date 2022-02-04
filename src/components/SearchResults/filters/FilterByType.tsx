@@ -1,13 +1,15 @@
 import { FC } from "react";
 
-import { useDispatch } from "react-redux";
+import { shallowEqual, useDispatch } from "react-redux";
 
 import { ReactComponent as TypeFilterIcon } from "../../../assets/searchResult/typefilter.svg";
 import {
   addTypeCollectionFilter,
-  // setTypeFilter,
+  addTypeCollectionFilterTextContent,
 } from "../../../redux/features/marketplace/marketplaceSlice";
+import { useAppSelector } from "../../../redux/hook";
 
+import { filterByTypeFakeData } from "./filterByTypeFakeData";
 import { ITypeFilterProps } from "./model";
 
 const FilterByType: FC<ITypeFilterProps> = ({
@@ -17,6 +19,17 @@ const FilterByType: FC<ITypeFilterProps> = ({
   setTypeFilterState,
   typeFilterState,
 }) => {
+  const {
+    filterByType,
+  } = useAppSelector(
+    ({ marketplaceData }) => ({
+      filterByType: marketplaceData.filters.type,
+      mergedFilters: marketplaceData.mergedFilters,
+    }),
+    shallowEqual
+  );
+  const idArr = filterByType.map(({ id }) => id);
+
   const dispatch = useDispatch();
 
   const handleOpenTypeFilter = () => {
@@ -29,10 +42,13 @@ const FilterByType: FC<ITypeFilterProps> = ({
   const handleAddFilter = (e: any) => {
     dispatch(
       addTypeCollectionFilter({
-        className: e.target.parentElement.parentElement.className,
+        className: e.target.parentElement.parentElement.parentElement.className,
         textContent: e.target.textContent as string,
-        id: e.target.id,
+        id: e.target.parentElement.id,
       })
+    );
+    dispatch(
+      addTypeCollectionFilterTextContent(e.target.textContent as string)
     );
   };
 
@@ -49,11 +65,12 @@ const FilterByType: FC<ITypeFilterProps> = ({
       </div>
       {typeFilterState ? (
         <div onClick={handleAddFilter}>
-          <div id="0">Gempools</div>
-          <div id="1">Lootboxes</div>
-          <div id="2">Raffles</div>
-          <div id="3">Card Pack</div>
-          <div id="4">Attributed NFT</div>
+          {filterByTypeFakeData.map(({ name, id }) => (
+            <div id={`${id}`} key={id}>
+              <p>{name}</p>
+              {idArr.includes(`${id}`) ? <span></span> : null}
+            </div>
+          ))}
         </div>
       ) : null}
     </div>

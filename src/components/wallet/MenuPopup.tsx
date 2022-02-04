@@ -1,5 +1,6 @@
-import { useWeb3React } from "@web3-react/core";
-import { ethers } from "ethers";
+import { useEffect } from "react";
+
+import { useMoralis } from "react-moralis";
 import { shallowEqual, useDispatch } from "react-redux";
 import { useLocation } from "react-router";
 import { NavLink } from "react-router-dom";
@@ -10,56 +11,108 @@ import {
   connectWallet,
   menuPopup,
 } from "../../redux/features/create/createSlice";
-import { setAccount } from "../../redux/features/wallet/walletSlice";
+import "../../redux/features/wallet/walletSlice";
+import {
+  setAccount,
+  setBalance,
+} from "../../redux/features/wallet/walletSlice";
 import { useAppSelector } from "../../redux/hook";
 
-const MenuPopup = () => {
-  const { pathname } = useLocation();
+import NativeBalance from "./NativeBalance";
 
-  const context = useWeb3React<ethers.providers.Web3Provider>();
+const MenuPopup = () => {
   const { menuPopupState, account, balance } = useAppSelector(
     ({ createData, walletData }) => ({
-      menuPopupState: createData.menuPopupState,
+      menuPopupState: createData.data.menuPopupState,
       account: walletData.account,
       balance: walletData.balance,
     }),
     shallowEqual
   );
-
   const dispatch = useDispatch();
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    const close = (e: any) => {
+      if (e.key === "Escape") {
+        dispatch(menuPopup(false));
+      }
+    };
+    window.addEventListener("keydown", close);
+    return () => {
+      window.removeEventListener("keydown", close);
+    };
+  }, [dispatch]);
+
+  const { logout, user, isWeb3Enabled, web3, isAuthenticated } = useMoralis();
+  useEffect(() => {
+    if (isWeb3Enabled) {
+      web3?.eth
+        .getAccounts()
+        .then((account) => dispatch(setAccount(account[0])));
+
+      web3?.eth
+        .getBalance(
+          account ? account : "0xB6f9D892Cc52Ae349eCbbd10198bb6dd045fC80b"
+        )
+        .then((res) => dispatch(setBalance(res)));
+    }
+  }, [web3, isWeb3Enabled, dispatch, account]);
 
   const handleCloseMenuPopup = () => dispatch(menuPopup(false));
 
-  const accountFirstPart = account?.split("").slice(0, 6).join("");
-  const accountSecondPart = account?.split("").slice(38, 42).join("");
+  const accountFirstPart = user
+    ?.get("ethAddress")
+    .split("")
+    .slice(0, 6)
+    .join("");
+  const accountSecondPart = user
+    ?.get("ethAddress")
+    .split("")
+    .slice(38, 42)
+    .join("");
+
+  const accountFirstPartWC = account?.split("").slice(0, 6).join("");
+  const accountSecondPartWC = account?.split("").slice(38, 42).join("");
 
   const copyAccount = () => {
     navigator.clipboard?.writeText(account);
   };
 
   const handleLogOut = () => {
-    context.deactivate();
-    dispatch(setAccount(""));
-    localStorage.setItem("account", "");
-    localStorage.removeItem("walletconnect");
+    logout();
     dispatch(connectWallet(true));
   };
 
+  const handleClickMenuPopup = (e: any) => {
+    if (e.target.className === "menuPopup") {
+      dispatch(menuPopup(false));
+    }
+  };
   return (
-    <div className={menuPopupState ? "menuPopup" : "menuPopup--hide"}>
+    <div
+      className={menuPopupState ? "menuPopup" : "menuPopup--hide"}
+      onClick={handleClickMenuPopup}
+    >
       <div className="menuPopup__container">
         <div className="menuPopup__container__upperPart">
           <div className="menuPopup__container__upperPart__myWalletDiv">
             <div className="menuPopup__container__upperPart__myWalletDiv--titleDiv">
+              <p>My wallet</p>
               <div>
                 <ReloadIcon />
               </div>
-              <p>My wallet</p>
             </div>
             <div className="menuPopup__container__upperPart__balance">
               <div className="menuPopup__container__upperPart__balance--balanceDiv">
                 <div>
-                  <span>ETH {balance}</span>
+                  {isWeb3Enabled ? (
+                    <span>ETH {balance}</span>
+                  ) : isAuthenticated ? (
+                    <NativeBalance />
+                  ) : (
+                    <span>0 ETH</span>
+                  )}
                   <p>Total Balance</p>
                 </div>
               </div>
@@ -68,7 +121,9 @@ const MenuPopup = () => {
 
           <div className="menuPopup__container__upperPart__myWalletDiv--tokenDiv">
             <p onClick={copyAccount}>
-              {accountFirstPart}...{accountSecondPart}
+              {isWeb3Enabled
+                ? `${accountFirstPartWC}...${accountSecondPartWC}`
+                : `${accountFirstPart}...${accountSecondPart}`}
             </p>
             <CopyIcon
               onClick={() => {

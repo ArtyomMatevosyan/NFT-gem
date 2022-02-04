@@ -1,6 +1,7 @@
 import { FC, useRef, useState } from "react";
 
 import { ReactComponent as ArrowIcon } from "../../assets/details/arrow.svg";
+import { ReactComponent as CopyIcon } from "../../assets/details/copy.svg";
 
 import { GempoolDetailsTableWithThreeColumnProps } from "./model";
 
@@ -43,21 +44,36 @@ const GempoolDetailsTableWithThreeColumn: FC<GempoolDetailsTableWithThreeColumnP
               Total Supply
             </p>
           </div>
-          {data.map((item) => (
-            <div className="table__content__items" key={item.id} ref={claimRef}>
-              <p
-                className="table__content__items--first"
-                onClick={() => copyToClipboard(item.first)}
-              >
-                {claimRef.current?.offsetWidth <= 1000 &&
-                claimRef.current?.offsetWidth > 770
-                  ? item.first.split("").slice(0, 50).join("") + "..."
-                  : claimRef.current?.offsetWidth <= 770
-                  ? item.first.split("").slice(0, 30).join("") + "..."
-                  : item.first}
-              </p>
-              <p className="table__content__items--second">{item.second}</p>
-              <p className="table__content__items--third">{item.third}</p>
+          {data.map(({ id, second, third, first }) => (
+            <div className="table__content__items" key={id} ref={claimRef}>
+              <span>
+                <p className="table__content__items--first">
+                  {claimRef.current?.offsetWidth < 992 &&
+                  claimRef.current?.offsetWidth >= 704
+                    ? first.split("").slice(0, 15).join("") +
+                      " ... " +
+                      first
+                        .split("")
+                        .slice(first.length - 15, first.length)
+                        .join("")
+                    : claimRef.current?.offsetWidth < 704
+                    ? first.split("").slice(0, 10).join("") +
+                      " ... " +
+                      first
+                        .split("")
+                        .slice(first.length - 10, first.length)
+                        .join("")
+                    : first.split("").slice(0, 22).join("") +
+                      " ....... " +
+                      first
+                        .split("")
+                        .slice(first.length - 21, first.length)
+                        .join("")}
+                </p>
+                <CopyIcon onClick={() => copyToClipboard(first)} />
+              </span>
+              <p className="table__content__items--second">{second}</p>
+              <p className="table__content__items--third">{third}</p>
             </div>
           ))}
         </div>

@@ -5,9 +5,7 @@
     color: #eceff4;
   }
   &_p {
-    font-family: "Roboto";
-    font-size: 1.4rem;
-    line-height: 2.2rem;
+    @include robotoFontSmall;
     color: #7a797c;
     margin-bottom: 3.453rem;
     margin-top: 0.5rem;
@@ -49,9 +47,7 @@
     }
 
     p {
-      font-family: "Roboto";
-      font-size: 1.4rem;
-      line-height: 2.2rem;
+      @include robotoFontSmall;
       color: #637a88;
       margin: 0;
       span {
@@ -101,6 +97,46 @@
   .create__container__imgSection {
     &__imgContainer {
       width: 70rem;
+    }
+  }
+}
+@media (max-width: 768px) {
+  .create__container__imgSection {
+    &_span {
+      margin-left: 17%;
+    }
+    &_p {
+      margin-left: 17%;
+    }
+    &__imgContainer {
+      width: 40rem;
+    }
+  }
+}
+
+@media (max-width: 425px) {
+  .create__container__imgSection {
+    &_span {
+      font-size: 1.4rem;
+      line-height: 1.7rem;
+      margin-left: 28%;
+    }
+    &_p {
+      margin-left: 28%;
+      font-size: 1.2rem;
+      line-height: 2.2rem;
+    }
+    &__imgContainer {
+      width: 26.5rem;
+      height: 14.3rem;
+      p {
+        font-size: 1.1rem;
+        line-height: 1.5rem;
+        text-align: center;
+        span {
+          display: block;
+        }
+      }
     }
   }
 }
